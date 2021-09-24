@@ -1,0 +1,49 @@
+<Andrew> <Piatetsky> <Lindsay> < Phung> <Joseph> <Othman>
+APCS
+HW<03> -- <Codify the Revisions / Bin to Dec and Dec to Bin / For this hw, our trio had to take the feedback from the group that reviewed our initial explanations and algorithms and edit / redraft our answers. We also had to create a file on github as well as bring one into class>
+<2021>-<09>-<23>
+ 
+Mangos
+Andrew Piatetsky, Lindsay Phung, Joseph Othman
+09/21
+Period 7
+ 
+0.
+The base of a number in base-x shows 1 greater than the maximum for any given place value/digit. To convert from any number in base x to base 10, one must multiply the place value by the corresponding base, raised to a certain power (its num value). The certain power for the rightmost digit is 0, and for all other digits the power is just +1 moving to the left.
+ 
+1.
+Binary is a base 2 system. It only has 2 possible values for any place value, either 1 or 0 (on or off). This is useful because a numerical input number can be easily converted to base 2, which can represent a series of ons and offs, which is how we can communicate with electronics/hardware.
+ 
+ 
+2.
+Ex. 
+1001(base 2 / binary) ------> Decimal	
+10012 = 1×(2^0)+ 0×(2^1) + 0×(2^2) + 1×(2^2) = 1 + 0 + 0 + 8 = 9(base 10 / decimal)
+1001(base 2/ decimal) = 9(base 10 / decimal)
+ 
+This is how you convert from base 2 to base 10 or the decimal system. First, multiply the rightmost digit by 2^0, then the next value by 2^1, and then continue increasing the powers of 2 by 1 as you move to the left until there are no more digits to the left. 
+ 
+ 
+3.
+Ex. 
+9(base 10 / decimal) ----> Binary
+9 - (2^3) (8) = 1
+1 - (2^2) (4) = -3 < 0
+1 - (2^1) (2) = -1 < 0
+1 - (2^0) (1) = 0 = 0
+ 
+Step 1 and 4 subtract while keeping the difference positive, whereas 2 and 3 did not. So step 1 would give us ‘1’, step 2 ‘0’, step 3 ‘0’, and step 4 gives us ‘1’.
+ 
+So 9(base 10 / decimal) = 1001(base 2 / binary)
+ 
+The first step is to subtract the largest power of two possible while keeping the difference positive. Then you try successive powers of two, so in this case we started with 2^3, because 8>9, and 2^4=16>9 so we started with that. We subtracted 8 from 9 to obtain 1, and then we tried 2^2 which led to an answer < 0, afterwards we tried 2^1, which still resulted in a number <0. finally we got to 2^0, which led to an answer equal to 0.
+ 
+Now to actually convert. Each valid subtraction corresponds to a 1, while the non successful ones correspond to a zero.
+ 
+We then concatenate the numbers from left to right starting with the greatest power of 2 and successively working our way down to 2^0.
+ 
+ 
+ 
+ 
+ 
+
