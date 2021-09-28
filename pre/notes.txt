@@ -1,0 +1,20 @@
+This task was very time consuming but in the end I figured it out.
+
+Problems and solutions when creating ssh key on windows:
+
+First problem I encountered was not having git/git bash installed on my computer.
+The solution was to install it from the web.
+
+My next issue was that my anti virus detected a virus in git bash which was a false alarm.
+So the solution was to quiet my anti virus.
+
+
+Problems and solutions when commiting changes to github from git:
+
+First problem was that my email wasn't working so I had to follow the on screen commands to configure my email on git on my machine.
+
+Next I couldn't figure out how to open a directory from git bash because it had parentheses and a space. 
+So to fix that I just right clicked on the folder and choosing to open with git bash and it worked.
+
+
+It was painful but in the end I did it.
