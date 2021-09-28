@@ -1,0 +1,4 @@
+I didn't use scheme last year (I used racket) so I don't have it installed. 
+
+So I just searched up an online editor (similar to the one we used last year for racket) and wrote the code there. 
+

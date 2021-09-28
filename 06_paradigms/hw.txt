@@ -1,0 +1,20 @@
+1. Write a program in each language to print “Hello, world!”
+
+Scheme:
+(display "Hello, world!")
+
+NetLogo:
+print ("Hello, World!")
+
+Python:
+print ("Hello, World!")
+
+2. Once you verify your code works, transcribe each into your notebook.
+3. List perceptible similarities in how you composed and ran each bit of code. (i.e., things you and your teammates observe, not what one might look up in reference materials. Inferences are welcome, iff they are justifiable via observables.)
+
+They all look extremely similar. All of the text is in quotes and all of them use brackets in some way. Netlogo's code and Python's code is exactly the same whereas schemes is slightly different. They all ran extremely quickly and to write them all I needed was some editor for the programming language and the programming language installed so that the computer understood what to do with the commands/inputs.
+
+
+4. List perceptible differences in how you composed and ran each bit of code. (i.e., things you and your teammates observe, not what one might look up in reference materials. Inferences are welcome, iff they are justifiable via observables.)
+
+Again Python and Netlogo's code was exactly the same and running them was also very similar. The only difference is that I used the shell in netlogo editor to write the netlogo code and I used IDLE to write the python. The scheme was very different. Instead of having the paranthesis around only the text, they are around the entire input/command. Also instead of print, the key word is "display". Additionally, scheme has no shell so I had to write it and then run it. 
