@@ -1,0 +1,32 @@
+Output 
+
+No, I wug.
+You wugga wug.
+I wug.
+
+"No I wug.\nYou wugga wug.\nI wug.\n"
+
+
+Stack diagram
+
+1. "No I "
+2. calls zoop
+3. zoop calls baffle
+4. baffle adds "wug" to baffle print block
+5. baffle executes ping
+6. ping adds ".\n" to baffle print block
+7. baffle print block is "wug.\n" (because its a println output)
+8. baffle finishes adds "wug.\n" to zoop print block
+9. zoop adds "You wugga " to zoop print block
+10. again runs baffle, and adds "\nwug.\n" again
+11. zoop is done
+12. zoop print block is added to main print block
+13. main print block is "No I wug.\nYou wugga wug.\n"
+14. "I " is added to main print block
+15. main print block is "No I wug.\nYou wugga wug.\nI "
+16. baffle is called again, and again it adds "\nwug.\n" to the main print block.
+17. "No I wug.\nYou wugga wug.\nI wug.\n" is the final output
+
+
+
+if you added baffle() to the end of ping it would become recersive and loop forever because there is nothing stopping it. It would keep on adding "\nwug.\n" over and over again until you force close it.
