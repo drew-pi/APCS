@@ -1,6 +1,7 @@
 /*<Mangos: Andrew Piatetsky, Joseph Othman, Lindsay Phung> <Burnt Peanut>
 APCS
-HW<12> -- <On Elder Individuality and the Elimination of Radio Fuzz/Learning about Java classes/ Used instance varibales to create a few objects that can greet someone specific.>
+HW<12> -- <On Elder Individuality and the Elimination of Radio Fuzz/Learning about Java classes/
+Used instance varibales to create a few objects that can greet someone specific.>
 <2021>-<10>-<5>
 */
 
