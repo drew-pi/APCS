@@ -7,7 +7,7 @@ Create two different versions of BigSib and Greet.java so that one has only a de
 
 
 public class BigSib {
-	//Default constructor Big Sib class
+	//Overloaded constructors Big Sib class
 
 	String helloMsg;
 
