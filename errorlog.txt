@@ -3,3 +3,38 @@ error: Pulling is not possible because you have unmerged files.
 hint: Fix them up in the work tree, and then use 'git add/rm <file>'
 hint: as appropriate to mark resolution and make a commit.
 fatal: Exiting because of an unresolved conflict.
+
+----------------------------------------------------------------------------------------
+
+
+10/7 - error when did javac *.java on hw 14.
+Greet.java:14: error: no suitable constructor found for BigSib(no arguments)
+                BigSib joe = new BigSib();
+                             ^
+    constructor BigSib.BigSib(String) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor BigSib.BigSib(String,String) is not applicable
+      (actual and formal argument lists differ in length)
+1 error
+
+error because I deleted the default constructor and instead had 2 overloaded constructors/methods with 1 and 2 args (respectfully).
+Error only popped up when created an object of that class without any args
+ex. 
+That works:
+
+BigSib joe = new BigSib("Word up");
+
+greeting = joe.greet("freshman");
+System.out.println(greeting);
+
+
+
+This doesn't:
+
+BigSib joe = new BigSib();
+
+greeting = joe.greet("freshman");
+System.out.println(greeting);
+
+
+---------------------------------------------------------------------------
