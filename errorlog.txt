@@ -38,3 +38,12 @@ System.out.println(greeting);
 
 
 ---------------------------------------------------------------------------
+
+10-14
+error when doing hw 18:
+
+BankAccount.java:30: error: non-static method print() cannot be referenced from a static context
+
+tried to print static instance variable from non static method from static main method.
+
+-----------------------------------------------------------------------------------------
