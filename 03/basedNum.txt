@@ -18,7 +18,7 @@ Binary is a base 2 system. It only has 2 possible values for any place value, ei
 2.
 Ex. 
 	1001(base 2 / binary) ------> Decimal	
-10011 = 1×(2^0)+ 0×(2^1) + 0×(2^2) + 1×(2^2) = 1 + 0 + 0 + 8 = 9(base 10 / decimal)
+1001 = 1×(2^0)+ 0×(2^1) + 0×(2^2) + 1×(2^2) = 1 + 0 + 0 + 8 = 9(base 10 / decimal)
 	1001(base 2/ decimal) = 9(base 10 / decimal)
  
 This is how you convert from base 2 to base 10 or the decimal system. First, multiply the rightmost digit by 2^0, then the next value by 2^1, and then continue increasing the powers of 2 by 1 as you move to the left until there are no more digits to the left. 
