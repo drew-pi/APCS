@@ -5,36 +5,62 @@ HW 18 -- CPA-One/using UML Diagrams of classes to write classes/ We used our UML
 2021-10-16
 */
 
+
+
 public class BankAccount {
-
-	static String FullName;
-	String Password;
-	int PIN;
-	int AccountNumber;
-	double Balance;
-
-	public void BankAccount() {
-		AccountNumber = 123456789;
-	}
-
-	public void BankAccount(String name, String pwd, int pin, double initAmount) {
+	
+	private String FullName;
+	private String Password;
+	private int PIN;
+	private int AccountNumber;
+	private double Balance;
+	
+	//Overloaded constructor, no default one because need to make account by default.
+	public BankAccount(String name, String pwd, int pin, double initAmount) {
 		FullName = name;
 		Password = pwd;
 		PIN = pin;
 		Balance = initAmount;
+		AccountNumber = 123456789;
 	}
 
-	public void print(){
-		System.out.println(FullName);
-		//System.out.println(Password);
-		//System.out.println(PIN);
-		//System.out.println(AccountNumber);
-		//System.out.println(Balance);
+	public void ShowInfo(String name, String pwd) {
+		System.out.println("FullName: " + FullName);
+		System.out.println("Password: " + Password);
+		System.out.println("PIN: " + PIN);
+		System.out.println("Acc number: " + AccountNumber);
+		System.out.println("Balance: " + Balance);
 	}
 
+	public double Deposit(int pin, double amount){
+		Balance += amount;
+		return Balance;
+	}
+
+	public double Withdraw(int pin, double amount){
+		Balance -= amount;
+		return Balance;
+	}
+	
 	public static void main (String[] args) {
-		System.out.println("It works!!");
-		print();
-
+		System.out.println("It works!!");		
 	}
 }
+
+
+/*
+Discoveries: If you want to use a class from another file and create objects of class then all methods must be 
+public. Also there is no way to use instance variables in the main method (even when using other methods as
+a buffer) except when those instance variables are static (which means they can no longer be attributes of
+an object)
+
+Questions: How come instance variables can be private but methods cannot be (at least when you want it to 
+interact with another [java] file)?
+Is there any way to create an account number randomly but to make sure that none repeat (in java)?
+
+Q3:
+
+Q4:
+
+
+*/
