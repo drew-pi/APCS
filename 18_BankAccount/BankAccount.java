@@ -42,8 +42,18 @@ public class BankAccount {
 		return Balance;
 	}
 	
-	public static void main (String[] args) {
-		System.out.println("It works!!");		
+	public static void main (String[] args) { 
+		BankAccount joshAccount = new BankAccount("Josh Davis","password",1234,1000);
+
+		joshAccount.Deposit(1234,4000.50);
+		joshAccount.ShowInfo("Josh Davis","password");
+		joshAccount.Withdraw(1234,2500.50);
+		joshAccount.ShowInfo("Josh Davis","password");
+
+		BankAccount bobAccount = new BankAccount("Bob Dylan","123",5678,20000.75);
+
+		bobAccount.Deposit(5678,99.25);
+		bobAccount.ShowInfo("Bob Dylan","123");	
 	}
 }
 
