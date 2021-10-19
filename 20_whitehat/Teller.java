@@ -2,7 +2,7 @@
 TNPG that wrote Teller.java: Vegan Dragons (Andrew Piatesky, Anjini Katari, Courtney Huang) and Burnt Peanut
 TNPG that wrote class BankAccount: Team Sushi (Ruby Friedman, Joseph Othman, Ivina Wang)
 APCS
-HW 20 -- External Audit/Checking TNPG+1 group using external java file/
+HW 20 -- External Audit/Checking TNPG+1 group using external java file/Tested the code of TNPG+1, it was the same syntax as ours so it was very easy to implement our tests to thier code
 2021-10-19
 
 subject all of their BankAccount’s functionality to stress testing. (Write code that will 
