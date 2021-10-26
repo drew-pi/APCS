@@ -1,5 +1,17 @@
+/*
+TNPG: Vegan Dragons (Andrew Piatesky, Anjini Katari, Courtney Huang) and Burnt Peanut
+APCS
+HW 19 -- Do I repeat myself?/Working with loops and recursion/Created two versions of a method that builds a fence, one recursive the other one looping using while loop
+2021-10-26
+time spent: 30-40min
 
+Discoveries:
+Recursion is much cleaner and cooler than while loops.
+If you input zero into the recusion method without a non recursive return statement (line 66), then it will throw an error and repeat forever.
 
+Questions:
+How can I write my recursive method without a string input?
+*/
 
 
 public class Repeater {
@@ -40,7 +52,7 @@ public class Repeater {
 		return str;
 	}
 
-
+	//Creates fences using recursion
 	private static String fenceR ( int numPosts, String str ) {
 		
 		if ( numPosts == 1 ) {
