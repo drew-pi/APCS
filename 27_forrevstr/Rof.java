@@ -41,20 +41,22 @@ public class Rof {
 	}
 
 
-	public static String reverseR(String s, String newStr) {
+	public static String reverseR(String s) {
 
-		String lastChar = s.substring((s.length())-1,(s.length()));
+		if (s=="") {
+                    return("Please enter non-empty string");
+            }
 
-		if (newStr.length() == s.length()) {
-			return newStr;
-		}
-		else {
-			System.out.println(newStr);
-			System.out.println(s);
-			newStr += lastChar;
-			s = s.substring(0,(s.length()-1));
-			return reverseR(s,newStr);
-		}
+        int len = s.length();
+
+        if (len == 1) { 
+        	return s; 
+        }
+
+        //System.out.println("1 " + s.substring(len - 1, len));
+        //System.out.println("2 " + s.substring(0, len - 1));
+        //System.out.println("3 " + s);
+        return s.substring(len - 1, len) + reverseR(s.substring(0, len - 1));
 	}
 	
 	
@@ -70,6 +72,6 @@ public class Rof {
 		System.out.println(reverseF("stressed"));
 
 		//Testing reverseR method
-		System.out.println(reverseR("stressed",""));
+		System.out.println(reverseR("stressed"));
 	}
 }
