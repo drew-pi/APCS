@@ -4,6 +4,14 @@
  * HW31 -- Otnay Ybay ethay Airhay Onway Ymay Inneechay Inchay Inchay/String manipulation and iteration and recursion/Created a pig latin translator.
  * 2021-11-03
  * time spent: 20min
+ * 
+ * 
+ * Discoveries: 
+ * Taking a problem step by step is easier than solving everything at once.
+ * Creating methods to traverse a string becomes easier with practice
+ * Substring kind of allows us to turn each string into a list of letters
+ * 
+ * Questions:
  *
  * class Pig
  * a Pig Latin translator
