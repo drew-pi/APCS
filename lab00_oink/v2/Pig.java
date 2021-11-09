@@ -1,9 +1,9 @@
 /***
- * TNPG: Vegan Dragons (Andrew Piatesky, Anjini Katari, Courtney Huang) and Burnt Peanut
+ * TNPG: Pigs Can Fly (Perry Huang, Salaj Rijal, Faiyaz Rafee, Andrew Piatetsky) and Burnt Peanut
  * APCS
- * HW31 -- Otnay Ybay ethay Airhay Onway Ymay Inneechay Inchay Inchay/String manipulation and iteration and recursion/Created a pig latin translator.
- * 2021-11-03
- * time spent: 20min
+ * Lab00 -- Etterbay Odingcay Oughthray Ollaborationcay/String manipulation and iteration and recursion/Create a pig latin translator.
+ * 2021-11-09
+ * time spent: 30min
  *
  *
  * Discoveries:
@@ -12,6 +12,7 @@
  * Substring kind of allows us to turn each string into a list of letters
  *
  * Questions:
+ * Why would we implement scanner if its easy to input things using main method args?
  *
  * class Pig
  * a Pig Latin translator
@@ -25,6 +26,13 @@ public class Pig
   private static final String PUNC = "!.?;:";
 
 
+
+
+  /** ==================================
+   * 
+   * Methods that resolve vowel related issues
+   * 
+   ================================== **/ 
 
   /*=====================================
     boolean hasA(String,String) -- checks for a letter in a String
@@ -53,90 +61,41 @@ public class Pig
     if (hasA(VOWELS,letter)) {
       return true;
     }
+
     return false;
 
   }
 
-
-  /*=====================================
-    int countVowels(String) -- counts vowels in a String
-    pre:  w != null
-    post: countVowels("meatball") -> 3
-    =====================================*/
-  public static int countVowels( String w ) {
-
-    int numVowels = 0;
-
-    for (int index = 0; index < w.length(); index ++) {
-      if (isAVowel(w.substring(index,index+1))) {
-        numVowels += 1;
-      }
-    }
-
-    return numVowels;
-  }
-
-
-  /*=====================================
-    boolean hasAVowel(String) -- tells whether a String has a vowel
-    pre:  w != null
-    post: hasAVowel("cat") -> true
-    hasAVowel("zzz")       -> false
-    =====================================*/
-  public static boolean hasAVowel( String w ) {
-
-    if (countVowels(w) > 0) {
-      return true;
-    }
-    return false;
-
-  }
-
-
-  /*=====================================
-    String allVowels(String) -- returns vowels in a String
-    pre:  w != null
-    post: allVowels("meatball") -> "eaa"
-    =====================================*/
-  public static String allVowels( String w ) {
-
-    String strVowels = "";
-
-    for (int index = 0; index < w.length(); index ++) {
-      if (isAVowel(w.substring(index,index+1))) {
-        strVowels += w.substring(index,index+1);
-      }
-    }
-
-    return strVowels;
-
-  }
-
-
+  //Returns true if the sentence begins with a vowel
   public static boolean beginsWithV ( String w ) {
 
     return isAVowel(w.substring(0,1));
 
   }
 
-
+  //Finds index of first vowel (Linear search)
   public static int indexOfV ( String w ) {
 
-    if ( hasAVowel(w) ) {
-      for (int index = 0; index < w.length(); index ++) {
-        if (isAVowel(w.substring(index,index+1))) {
-          return index;
-        }
+    for (int index = 0; index < w.length(); index ++) {
+      if (isAVowel(w.substring(index,index+1))) {
+        return index;
       }
     }
+
     return -1;
   }
 
 
 
 
-  //Capital letter improvements
-  public static boolean isACap( String letter ) {
+  /** ==================================
+   * 
+   * Functions which provide functionality when working with capital letters in translator
+   *
+    ==================================**/
+
+  //Checks to see if the letter is a capital letter by using CAPS string initialized at the top of code
+  public static boolean isACap( String letter ) { 
 
     if (hasA(CAPS,letter)) {
       return true;
@@ -146,15 +105,17 @@ public class Pig
   }
 
 
-  public static boolean hasACap ( String w ) {
+  // Checks to see if first letter is capital and returns true if it is
+  public static boolean firstCap ( String w ) {
 
-    if ( indexOfCap(w) != -1 ) {
+    if ( indexOfCap(w) == 0 ) {
       return true;
     }
     return false;
   }
 
 
+  //Returns index of capital letter, if none then returns -1
   public static int indexOfCap ( String w ) {
 
     for (int index = 0; index < w.length(); index ++) {
@@ -166,27 +127,36 @@ public class Pig
     return -1;
   }
 
-  public static int indexOflower ( String letter , String allLower ) {
+  //Finds the index of the letter based on the alphabet at the top of code (LOWER String variable)
+  public static int indexOflower ( String letter ) {
 
-    for (int index = 0; index < allLower.length(); index ++) {
-        if ((allLower.substring(index,index+1).equals(letter))) {
+    for (int index = 0; index < LOWER.length(); index ++) {
+        if ((LOWER.substring(index,index+1).equals(letter))) {
           return index;
         }
     }
     return -1;
   }
 
-  public static String findUpper (int capIndex, String allUpper) {
+  //Finds the index of the uppercase letter based on the alphabeta at the top of code (CAPS String variable)
+  public static String findUpper ( int capIndex ) {
 
-    for (int index = 0; index < allUpper.length(); index ++) {
+    for (int index = 0; index < CAPS.length(); index ++) {
         if (capIndex == index) {
-          return allUpper.substring(index,index+1);
+          return CAPS.substring(index,index+1);
         }
     }
     return null;
   }
 
 
+  /** ==================================
+   * 
+   * Methods useful in translating phrases with punctuation
+   * 
+   * ==================================**/
+
+  //Returns true if the String inputed is a letter (capital or lowercase)
   public static boolean isALetter ( String chara ) {
 
     if (hasA(CAPS,chara) || hasA(LOWER,chara)) {
@@ -195,6 +165,7 @@ public class Pig
     return false;
   }
 
+  //Returns index of Punctuation mark, -1 means that it doesn't exist
   public static int indexOfPunc ( String w ) {
 
     for (int index = 0; index < w.length(); index ++) {
@@ -205,10 +176,22 @@ public class Pig
     return -1;
   }
 
-  //Translator
+  /** ==================================
+   * 
+   * Translator methods for actually going from English to Pig Latin
+   * 
+   * ==================================**/
+
   public static String engToPig( String w ) {
 
     String pig = "";
+    String punct = "";
+  
+
+    if ( indexOfPunc(w) != -1 ) {
+      punct = w.substring(w.length()-1);
+      w = w.substring(0,w.length()-1);
+    }
 
     if ( beginsWithV(w) ) {
       pig = w + "way";
@@ -218,40 +201,22 @@ public class Pig
     if (vPos != -1) { pig = w.substring(vPos) + w.substring(0,vPos) + "ay"; }
     else {pig = w + "ay"; }
 
-    if (hasACap(w)) {
-      String capLetter = findUpper(indexOflower((pig.substring(0,1)),LOWER),CAPS);
-      pig = capLetter + (pig.substring(1)).toLowerCase();
+
+
+    if (firstCap(w)) {
+      String capLetter = findUpper(indexOflower((pig.substring(0,1)))); //Turns first letter of pig string into an uppercase letter and stores in variable
+      pig = capLetter + (pig.substring(1)).toLowerCase(); //Adds capital first letter to 
     }
 
-    if ( hasPunc(w) ) {
-      String punc = w.substring(indexOfPunc);
-      pig = 
-    }
-
-    return pig;
-
-
-
-  }
+    return pig + punct;
+  } //end engToPig
 
 
   public static void main( String[] args ) {
 
     for (String s : args ) {
-      //System.out.println(hasA("cat","s"));
-      //System.out.println(isAVowel(s));
-      //System.out.println(countVowels(s));
-      //System.out.println(hasAVowel(s));
-      //System.out.println(indexOfV(s));
       System.out.println(engToPig(s));
-      //System.out.println(hasACap(s));
     }
-
-
-
   }//end main()
-
-
-
 
 }//end class Pig
