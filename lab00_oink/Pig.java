@@ -20,7 +20,14 @@
  * How can I condense/ improve my code
  * 
  * 
- *
+ * HOW WE UTILIZED SCANNER DEMO:
+ * we utilized scanner to read the next full line by using .nextLine() method. We did it so that we can input sentences and get them back as sentences
+ * 
+ * WHAT CAUSES THE RUNTIME ERROR IN THE SCANNER DEMO:
+ * The error was caused by the fact that the boolean operator in the while loop was only checking to see if there was one more next line, but you were 
+ * actually trying to echo the next two, so at the end, the boolean would return true, but one of the print statement would have nothing to print
+ * 
+ * 
  * class Pig
  * a Pig Latin translator
  ***/
