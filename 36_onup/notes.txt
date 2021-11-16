@@ -1,0 +1,42 @@
+TNPG: Pseb & Co (Andrew Piatesky, Paul Serbanescu, Joseph Othman) and Burnt Peanut
+APCS
+HW 36 -- All Quacked Up/How to debug like a boss/Read a section from Think Java that described basic strategies for debugging and getting out of the 
+coding gutters 
+2021-11-19
+time spent: 40min
+
+
+Main Idea - DEBUGGING IS INFINITELY EASIER THE SMALLER YOUR PROBLEM IS.
+
+
+Different types of errors
+1. compile-time errors
+2. run time errors
+3. logic errors (program didn't do what we wanted it to do)
+
+
+Should not listen to compilers advice, should instead try to read the actual error and understand what happened and where in the code.
+
+Types of run time errors
+1. infinite loop - use print statements to see if it ever exits loop or something else wrong
+		 - can also use print statements to keep track of variables used in loop Boolean expressions
+
+2. Infinite recursion - no base case, or base case doesn't work
+3. Flow of execution - if you’re not sure what is happening print out when methods are called and with what inputs
+
+
+Exceptions
+NullPointerException - current variable is null, cannot assign things to it yet
+ArrayIndexOutOfBoundsException - see this one a lot, index is either -1 or greater than last index
+StackOverflowError - recursion goes on forever
+FileNotFoundException - code could not find file referenced in code
+ArithmeticException - math error like dividing by 0
+
+
+
+Other tips - simplify code with intermediatory variables to show what is happening
+	   - Walk away from computer or go to sleep/take a shower, helps to distract yourself for some time
+	   - talk to rubber ducky (called rubber ducking) or talk to person/ have them look over code
+
+When you find a bug finally think about why it happened and what you can do to not make that mistake next time.
+Think about it some more, don't just correct it and move on.
