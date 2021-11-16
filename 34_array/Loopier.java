@@ -9,11 +9,13 @@ DISCOVERIES:
 The size of an array cannot be changed, I could not find any substring type method for arrays
 Behave very similar to Strings. They have a length value, easy to use with loops. 
 Very different from Python lists and much more annoying
+Recursion with strings is very difficult
 
 QUESTION:
 How do you do the frequency recursion method?
 Is there any substring functioning method for arrays too?
 Are there any other list like data types? (in python we had tuples and dictionaries)
+Do arrays with length zero exits (tried to create it and use my arrayToString method and it didn't work)?
 */
 
 
@@ -22,20 +24,30 @@ Are there any other list like data types? (in python we had tuples and dictionar
 public class Loopier {
 
 	// HELPER METHOD - COPIES AN ARRAY TO ANY DESIRED LENGTH SMALLER THAN THE ORIGINAL
-	public static int[] copyOfArray(int[] array, int length) {
+	public static int[] copyOfArray(int[] array, int startIndex) {
 
-		if (array.length < length) {
+		int length = array.length;
+
+		if (startIndex == 0) {
 			return array;
+		} 
+
+		int[] newArray = new int[length-startIndex];
+
+		if (length-startIndex == 1) {
+			newArray[0] = array[startIndex];
 		}
 
-		int[] newArray = new int[length];
+		int oldI = startIndex;
 
-		for (int i = 0; i < length; i++) {
-			newArray[i] = array[i];
+		for (int i = 0; oldI <= length-startIndex; i++) {
+			newArray[i] = array[oldI];
+			oldI += 1;
 		}
 
 		return newArray;
 	}
+
 
 	// 1 - FILLS EXISTING ARRAY WITH RANDOM VALUES FROM 0 TO 5
 	public static int[] randArray(int[] array) {
@@ -79,11 +91,11 @@ public class Loopier {
 		if (array.length-1 < 0) {
 			return -1;
 		}
-		else if (array[array.length-1] == target) {
-			return array.length-1;
+		else if (array[0] == target) {
+			return 0;
 		} 
-		int[] newArray = copyOfArray(array,array.length-1);
-		return linSearchR(newArray,target);
+		int[] newArray = copyOfArray(array,1);
+		return 1 + linSearchR(newArray,target);
 	}
 
 
@@ -102,39 +114,66 @@ public class Loopier {
 
 	// 4B - USES RECURSION TO FIND FREQUENCY OF AN INTEGER TARGET
 	public static int freqRec( int[] array, int target ) {
+		
+		int[] newArray = copyOfArray(array,1);
 
-		if ((array.length == 0) && (array[0] == target)) {
-			return 1;
+		if (newArray.length == 1) {
+			if (newArray[0] == target) {
+				return 1;
+			}
+			return 0;
 		}
-		return 0; 
+		if (linSearch(array,target) == -1) {
+			return 0;
+		}
+		if (array[0] == target) {
+			return 1 + freqRec(newArray,target);
+		}
+		return freqRec(newArray,target);
 	}
 
 
 
 
 	public static void main(String[] args) {
+
+		int[] testArray = {1,9,2,3,4,5,5,4,9};
+		//int[] testArray = {};
+
+		//System.out.println(copyOfArray(testArray,1));
+		System.out.println(arrayToString(testArray));
+		System.out.println(arrayToString(copyOfArray(testArray,testArray.length-1))); // should return 2,3,4,5,5,4,9}
 		
 		System.out.println("========================");
 		int[] randArray = randArray(new int[5]);
-		System.out.println(randArray); //prints out memory location, useless for now
+		//System.out.println(randArray); //prints out memory location, useless for now
 		System.out.println(arrayToString(randArray)); //prints out random array's values
 
 		System.out.println("========================");
-		int[] testArray = {1,2,3,4,5,5,4,9};
-		System.out.println(linSearch(testArray,3)); //returns 2
+		System.out.println(linSearch(testArray,3)); //returns 3
 		System.out.println(linSearch(testArray,1));// returns 0
-		System.out.println(linSearch(testArray,8)); //returns -1
+		System.out.println(linSearch(testArray,9)); //returns 1
 
 		System.out.println("========================");
-		System.out.println(linSearchR(testArray,3)); //returns 2
+		System.out.println(linSearchR(testArray,3)); //returns 3
 		System.out.println(linSearchR(testArray,1));// returns 0
-		System.out.println(linSearchR(testArray,8)); //returns -1
+		System.out.println(linSearchR(testArray,9)); //returns 1
 
 		System.out.println("========================");
 		System.out.println(freq(testArray,5)); // returns 2
 		System.out.println(freq(testArray,4)); // returns 2
 		System.out.println(freq(testArray,1)); // returns 1
 		System.out.println(freq(testArray,10)); // returns 0
+
+		System.out.println("========================");
+		System.out.println(freqRec(testArray,9)); // returns 2
+		System.out.println(freqRec(testArray,4)); // returns 2
+		System.out.println(freqRec(testArray,1)); // returns 1
+		System.out.println(freqRec(testArray,10)); // returns 0
+
+
+
+
 
 	} // end main
 } // end class Loopier
