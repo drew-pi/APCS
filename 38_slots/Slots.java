@@ -1,12 +1,18 @@
-/*****************************************************
- * Clyde "Thluffy" Sinclair
- * APCS pd00
- * HW38 -- Shmoney
- * 2021-11-18
- *
- * class Slots
- * skeleton
- *****************************************************/
+/*
+TNPG: Pseb & Co (Andrew Piatesky, Paul Serbanescu, Joseph Othman) and Burnt Peanut
+APCS
+HW 38 -- Spin Class/Continue exploring random and practicing generating randum numbers/Filled in the skeleton called Slots.
+2021-11-2
+time spent: 1h30min
+
+DISCOVERIES:
+It is impossible to get a Win. The worst number of tries I got was close to 2000 (< 0.05%)
+Mini win is the most likely option. Got it first try almost every single time
+Again splitting the code into smaller helper methods is a lot easier than doing everything at once
+
+QUESTION:
+How much money would I lose in Vegas?
+*/
 
 public class Slots {
 
@@ -17,14 +23,6 @@ public class Slots {
     "cherry", "cherry", "cherry",
     "orange", "orange", "orange",
     "ugli", "ugli", "ugli",
-    /*
-      add extra fruits until your heart is content...
-      Some suggestions:
-    "orange", "orange", "orange",
-    "grapefruit", "grapefruit", "grapefruit",
-    "tangerine", "tangerine", "tangerine",
-    "ugli", "ugli", "ugli",
-    */
     "peach", "peach", "peach"
   };
 
@@ -36,8 +34,8 @@ public class Slots {
     pre:  constant array FRUITS exists, has been initialized
     post: mutable array _fruits contains same elements as FRUITS
     =====================================*/
-  public Slots()
-  {
+  public Slots() {
+
     //allocate memory for _fruits based on size of FRUITS:
     _fruits = new String[FRUITS.length];
 
@@ -48,24 +46,30 @@ public class Slots {
       _fruits[i] = fruit;
       i+=1;
     }
-  }
+
+  } //end Slots
 
 
   /*=====================================
     String toString() -- overrides inherited toString()
-    pre:
     post: returns String of elements in slots 0 thru 2, separated by tabs
     =====================================*/
-  public String toString()
-  {
+  public String toString() {
     String newStr = "";
 
     for (int i = 0; i < 3; i++) {
       newStr += _fruits[i] + "\t";
     }
 
+    /* useful version of toString 
+    newStr = "";
+    for (int i = 0; i < _fruits.length; i+=3) {
+      //System.out.println()
+      newStr += _fruits[i] + " " + _fruits[i+1] + " " + _fruits[i+2] + "\n";
+    }*/
+
     return newStr;
-  }
+  } //end toString
 
 
   /*=====================================
@@ -73,9 +77,13 @@ public class Slots {
     pre:  _fruits array exists
     post: elements at indices i, j are swapped
     =====================================*/
-  private void swap( int i, int j )
-  {
-    
+  private void swap( int i, int j ) {
+
+    //Stores index i because replaced in first line 
+    String iIndex = _fruits[i];
+
+    _fruits[i] = _fruits[j];
+    _fruits[j] = iIndex;
 
   }
 
@@ -85,45 +93,58 @@ public class Slots {
     pre:  _fruits array exists
     post: randomized order of elements in _fruits array
     =====================================*/
-  //public void spinOnce()
-  // {
-  //   // A simple approach to shuffling:
-  //   // iterate through the array, swapping
-  //   // the val at each index with a randomly chosen other index
-  //   for(  )
-  //     swap(  );
-  // }
-  //
-  //
-  // /*=====================================
-  //   boolean jackpot() -- checks for a winning combo
-  //   pre:  _fruits is existing array
-  //   post: returns true if first 3 slots represent winning combo,
-  //   false otherwise
-  //   =====================================*/
-  // public boolean jackpot()
-  // {
-  //   boolean retBoo = false;
-  //
-  //
-  //   return retBoo;
-  // }
-  //
-  //
-  // /*=====================================
-  //   boolean miniWin() -- checks for a winning combo
-  //   pre:  _fruits is existing array
-  //   post: returns true if first 3 slots represent winning combo,
-  //   or if first 3 slots mutually distinct,
-  //   false otherwise
-  //   =====================================*/
-  // public boolean miniWin()
-  // {
-  //   boolean retBoo = ?
-  //
-  //
-  //   return retBoo;
-  // }
+  public void spinOnce() {
+
+    int randNum;
+
+    // A simple approach to shuffling:
+    // iterate through the array, swapping
+    // the val at each index with a randomly chosen other index
+    for(int i = 0; i < _fruits.length; i++) {
+      randNum = (int) (Math.random()*(_fruits.length));
+      swap(i, randNum);
+    }
+  }
+  
+  
+  /*=====================================
+    boolean jackpot() -- checks for a winning combo
+    pre:  _fruits is existing array
+    post: returns true if first 3 slots represent winning combo,
+    false otherwise
+    =====================================*/
+  public boolean jackpot() {
+    
+    for (int i = 0; i < 3; i++) {
+      if (!(_fruits[i].equals("lime"))) {
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  
+  /*=====================================
+    boolean miniWin() -- checks for a winning combo
+    pre:  _fruits is existing array
+    post: returns true if first 3 slots represent winning combo,
+    or if first 3 slots mutually distinct,
+    false otherwise
+    =====================================*/
+  public boolean miniWin() {
+
+    if (jackpot() == true) {return true;}
+
+    // System.out.println((_fruits[0].equals(_fruits[1])));
+    // System.out.println((_fruits[1].equals(_fruits[2])));
+    // System.out.println((_fruits[0].equals(_fruits[2])));
+
+
+    if ((!(_fruits[0].equals(_fruits[1]))) && (!(_fruits[1].equals(_fruits[2]))) && (!(_fruits[0].equals(_fruits[2])))) {
+      return true;
+    }
+    return false;
+  }
 
 
   //main() method for testing
@@ -133,10 +154,19 @@ public class Slots {
 
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     Slots machine01 = new Slots();
+    /*
     System.out.println(machine01.toString());
-    /*Slots machine02 = new Slots();
+    machine01.spinOnce();
+    System.out.println(machine01.toString());
+    System.out.println("==========");
+    System.out.println(machine01.jackpot());
+    System.out.println("==========");
+    System.out.println(machine01.miniWin());
+    System.out.println("==========");
+    ===========================================================
+    Methods to actually run fully functioning slot machine method*/
 
-
+    Slots machine02 = new Slots();  
 
     //test to verify slot machines function indepently
     System.out.println();
@@ -152,7 +182,9 @@ public class Slots {
     System.out.println( "Machine02 state:\t" + machine02 );
     System.out.println();
 
-
+    // STATISTICS CODE
+    int numMiniTries = 1;
+    int numWinTries = 1;
     //test gamble-until-you-win mechanism
 
     System.out.println( "Preparing to spin until a mini win! . . ." );
@@ -162,13 +194,13 @@ public class Slots {
     while( machine01.miniWin() == false ) {
       System.out.println( "Your spin..." + "\t" + machine01 );
       System.out.println( "LOSE\n" );
+      numMiniTries += 1;
       machine01.spinOnce();
     }
 
     System.out.println( "====================================" );
     System.out.println( "Your spin..." + "\t" + machine01 );
     System.out.println( "WIN\n" );
-
 
 
     System.out.println( "Preparing to spin until...jackpot! . . ." );
@@ -179,12 +211,17 @@ public class Slots {
       System.out.println( "Your spin..." + "\t" + machine01 );
       System.out.println( "LOSE\n" );
       machine01.spinOnce();
+      numWinTries += 1;
     }
 
     System.out.println( "====================================" );
     System.out.println( "Your spin..." + "\t" + machine01 );
     System.out.println( "JACKPOT!\n" );
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    System.out.println( "Your chance of winning was" + " " + (Math.round(((1.0/numWinTries)*100)*1000))/1000.0 + "%");
+    System.out.println( "On the other hand it took " + (numMiniTries) + " to get a mini win!" );
+    
+
+
   }//end main
 
 }//end class Slots
