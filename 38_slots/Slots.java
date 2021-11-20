@@ -220,8 +220,6 @@ public class Slots {
     System.out.println( "Your chance of winning was" + " " + (Math.round(((1.0/numWinTries)*100)*1000))/1000.0 + "%");
     System.out.println( "On the other hand it took " + (numMiniTries) + " to get a mini win!" );
     
-
-
   }//end main
 
 }//end class Slots
