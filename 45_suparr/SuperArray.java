@@ -157,7 +157,7 @@ public class SuperArray implements ListInt {
 	
 	// main method for testing
 	public static void main(String[] args) {
-		SuperArray ra = new SuperArray();
+		ListInt ra = new SuperArray();
 
 		System.out.print(ra);
 		System.out.println(ra.size());
