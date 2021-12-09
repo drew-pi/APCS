@@ -1,5 +1,27 @@
+/*
+TNPG: Pseb & Co (Andrew Piatesky, Paul Serbanescu, Joseph Othman) and Burnt Peanut
+APCS
+HW45 - Array of Titanium/Doing more with Arrays/using interfaces to create a wrapper class for arrays so that we can get more functionality like in python
+2021-12-8
+time spent: 1h30min
+
+DISCOVERIES:
+There is no easy way to extend an array, you have to create a new one and then fill it up
+Anyone can make any wrapper class with whatever extra functionality
+Interfaces are like blueprints and they throw errors when the class implementing the interface doesn't have some specified functions
 
 
+QUESTION:
+How do you get the nice formatting for methods in a class i.e 'superArray[1] = something' like in python instead of 'set(1,something)''
+What is the point of an interface, it just throws a bunch of errors. Why don't you create a bunch of classes and inherit thier methods?
+How can you interact with  attributes in interfaces
+*/
+
+/***************************
+ * class SuperArray
+ * Wrapper class for array. Facilitates resizing,
+ * getting and setting element values.
+ ***************************/
 
 public class SuperArray implements ListInt {
 
