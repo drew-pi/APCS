@@ -10,16 +10,9 @@ In this case it doesn't make sense to use recursion because its basically the sa
 You can use Math.random() to create specific ranges
 
 QUESTION:
-
+How would we convert this to do binary search
 
 */
-
-/***
-    DISCO:
-
-    QCC:
-
- ***/
 import java.util.Scanner;
 
 public class GuessNumber
