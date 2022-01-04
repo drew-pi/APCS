@@ -89,18 +89,18 @@ public class Rational {
 
     public int compareTo(Rational r) {
 
-      // // TEST PRINT STATEMENTS TO MAKE SURE NOT CHANGING ANYTHING
-      // System.out.println("Before reduce:  ");
-      // System.out.println(this);
-      // System.out.println(r);
+      // TEST PRINT STATEMENTS TO MAKE SURE NOT CHANGING ANYTHING
+      System.out.println("Before reduce:  ");
+      System.out.println(this);
+      System.out.println(r);
       r.reduce();
       this.reduce();
       
-      // // TEST PRINT STATEMENTS TO MAKE SURE NOT CHANGING ANYTHING
-      // System.out.println("After reduce:  "); 
-      // System.out.println(this);
-      // System.out.println(r);
-      // System.out.println();
+      // TEST PRINT STATEMENTS TO MAKE SURE NOT CHANGING ANYTHING
+      System.out.println("After reduce:  "); 
+      System.out.println(this);
+      System.out.println(r);
+      System.out.println();
       if ((this.numerator == r.numerator) && (this.denominator == r.denominator)) {
         return 0;
       } else if (this.floatValue() > r.floatValue()) {
