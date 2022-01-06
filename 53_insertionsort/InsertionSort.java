@@ -1,29 +1,32 @@
 /*
 TNPG: Blue Pizza Bagles (Andrew Piatesky, Ben Belotser, Kosta Dubovskiy) and Burnt Peanut
 APCS
-HW52 - Selection, Natch/Sorting algos/created a not so memory intensive sorting algorithm called selection sort which searches array for smallest item, places it at the beginning and then repeats for next smallest item.
+HW53 - Poker Face/Sorting algos/created a not so memory intensive sorting algorithm called selection sort which partitions array into smaller arrays and organizes them before adding another value (more detail in algo)
 2021-1-4
-time spent: hr
+time spent: 1hr
 */
 
 /******************************
  * class InsertionSort -- implements InsertionSort algorithm
  *
- * ALGO:
+ * ALGO: Start with a partition of the first two values (from left), sort them using bubble sort/swapping. Add the next consecutive value to the 
+ * partition and sort the entire partition again. Repeat until the partition is the entire array.
  * 
- * DISCO
+ * DISCO: 
+ * Skeleton life saving (also time saving)
+ * easier way to test code is to create a bunch of tests that return true or false if work or not
  *
  * QCC
  * q0: How many passes to sort n elements?
- * a0: 
+ * a0: n, because go from first to index size of array because that encompasses the entire list
  * q1: What do you know after pass p?
- * a1: 
+ * a1: that the first p+1 elements are sorted relative to each other 
  * q2: How will you know when sorted?
- * a2:
+ * a2: When the sorted partition is the entire array
  * q3: What constitues a pass?
- * a3:
+ * a3: a pass is just the sorting of the partition after adding a new element to the end of it
  * q4: What must you track?
- * a4: 
+ * a4: the values of the compared values because lost when swapping (because of ArrList.remove)
  ******************************/
 
 
