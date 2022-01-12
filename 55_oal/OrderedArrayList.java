@@ -69,7 +69,7 @@ public class OrderedArrayList
     }
   }
 
-  // time complexity - O(log base 2 of p, for correct position p. Halves the searching partition each run, so ends up finishing in logarithmic time complexity)
+  // time complexity - O(log base 2 of n, for size of array n. Halves the searching partition each run, so ends up finishing in logarithmic time complexity)
   // inserts newVal at the appropriate index
   // maintains ascending order of elements
   // uses a binary search to find appropriate index
