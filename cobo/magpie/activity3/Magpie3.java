@@ -10,8 +10,62 @@
  * @author Laurie White
  * @version April 2012
  */
-public class Magpie2
+public class Magpie3
 {
+
+	// HELPER METHODS + VARS
+
+	public final String PUNCT = "!?,.''-() ";
+
+	// taken from hw31 pig
+	public boolean hasA( String w, String letter ) {
+    
+		for (int index = 0; index < w.length(); index ++) {
+		  if (w.substring(index,index+1).equals(letter)) {
+			return true;
+		  }
+		}
+		return false;
+	
+	  }//end hasA()
+
+	  public boolean isAPunct( String letter ) {
+    
+		if (hasA(PUNCT,letter)) {
+		  return true;
+		}
+		return false;
+	  }
+
+	  // finds just the defined word, (not nested letters in a word), and returns its index or -1 if no target
+	public int isoIndexOf(String str, String target) {
+		if (str.indexOf(target) < 0) {
+			return -1;
+		}
+		int begIndex = str.indexOf(target);
+		String begVal = " ";
+		if (begIndex > 0) {
+			begVal = str.substring(begIndex-1,begIndex);
+		}
+
+		int endIndex = begIndex + target.length() -1;
+		String endVal = " ";
+		if (endIndex+1 < str.length()) {
+			endVal = str.substring(endIndex+1,endIndex+2);;
+		}
+
+		//System.out.println("ISO:"+str + " " + target + " " + begVal + " " + endVal);
+
+		if (isAPunct(endVal) && isAPunct(begVal)) {
+			return begIndex;
+		}
+		return -1;
+	}
+	// END HELPER METHODS
+
+
+
+
 	/**
 	 * Get a default greeting
 	 * @return a greeting
@@ -31,14 +85,14 @@ public class Magpie2
 	public String getResponse(String statement)
 	{
 		String response = "";
-		if (statement.indexOf("no") >= 0)
+		if (isoIndexOf(statement,"no") >= 0)
 		{
 			response = "Why so negative?";
 		}
-		else if (statement.indexOf("mother") >= 0
-				|| statement.indexOf("father") >= 0
-				|| statement.indexOf("sister") >= 0
-				|| statement.indexOf("brother") >= 0)
+		else if (isoIndexOf(statement,"mother") >= 0
+				|| isoIndexOf(statement,"father") >= 0
+				|| isoIndexOf(statement,"sister") >= 0
+				|| isoIndexOf(statement,"brother") >= 0)
 		{
 			response = "Tell me more about your family.";
 		}
@@ -47,10 +101,6 @@ public class Magpie2
 			response = getRandomResponse();
 		}
 		return response;
-	}
-
-	public boolean isoIndexOf(String str, String target) {
-		
 	}
 
 	/**
