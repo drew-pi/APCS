@@ -1,3 +1,3 @@
 # APCS
 
-### Assignments for APCS - heading provides a brief description of the assignment
+### Assignments for APCS - headings provide a brief description of each assignment
