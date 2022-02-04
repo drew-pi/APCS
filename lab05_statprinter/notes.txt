@@ -1,0 +1,29 @@
+Team Blue Pandas (Jacob Ng, PreGuac, Andrew Piatetsky, Burnt Peanut, Emily Ortiz, Applesauce)
+APCS pd6
+L05 -- pulling it together
+2022-02-03
+time spent: 2 hrs
+
+
+DISCO
+------------------------------------------------
+* You can't initialize an arraylist with a set size.
+================================================
+
+
+QCC
+------------------------------------------------
+* For _frequency, we had to use set() instead of add()
+* What is a local mode?
+* Why does getLocalModes() store the value and not the index?
+================================================
+
+
+MISC
+------------------------------------------------
+* Constructor     - O(n)
+* Max             - O(n)
+* isLocalMode     - O(1)
+* getLocalModes   - O(n)
+* printHistogram  - O(n^2)
+================================================
