@@ -1,8 +1,9 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
+// Team Blue Pandas (Jacob Ng, PreGuac, Andrew Piatetsky, Burnt Peanut, Emily Ortiz, Applesauce)
+// APCS pd6
 // L05 -- pulling it together
 // 2022-02-03r
-// time spent:  hrs
+// time spent: 2 hrs
+
 
 
 /**
@@ -12,23 +13,23 @@
 
    WHAT YOU NEED TO KNOW:
    The StatPrinter Object receives an
-   ArrayList of nonnegative integers, then builds a frequency ArrayList in which 
-   the index values are the data and the entry at the index is the frequency. 
-   For example, if the received data is    2,3,2,5,1,3    then the frequency 
-   list would be [0,1,2,2,0,1]. This is read as 0 zeroes, 1 one, 2 twos, 
-   2 threes, 0 fours, 1 five. The size of the frequency list is the equal to 
+   ArrayList of nonnegative integers, then builds a frequency ArrayList in which
+   the index values are the data and the entry at the index is the frequency.
+   For example, if the received data is    2,3,2,5,1,3    then the frequency
+   list would be [0,1,2,2,0,1]. This is read as 0 zeroes, 1 one, 2 twos,
+   2 threes, 0 fours, 1 five. The size of the frequency list is the equal to
    the maximum value of the data.
 
-   A capability of the class is to calculate local modes from the frequency 
-   list. A local mode is a value that is greater than the value at index-1 
-   and greater than the value at index+1. A local mode is never at the end 
-   points of the list. For example, if the frequency list is [1,2,1,4,2,3,5] 
+   A capability of the class is to calculate local modes from the frequency
+   list. A local mode is a value that is greater than the value at index-1
+   and greater than the value at index+1. A local mode is never at the end
+   points of the list. For example, if the frequency list is [1,2,1,4,2,3,5]
    then the local modes are 2 and 4.
 
-   This class is also capable of printing a histogram of the frequencies, using 
-   '*'s to indicate a frequency amount. To print a histogram, the user specifies 
-   the longest sequence of '*'s used and then all other values are printed in 
-   proportion to this value. For example, if longest bar is 10 and the frequency 
+   This class is also capable of printing a histogram of the frequencies, using
+   '*'s to indicate a frequency amount. To print a histogram, the user specifies
+   the longest sequence of '*'s used and then all other values are printed in
+   proportion to this value. For example, if longest bar is 10 and the frequency
    list is [1,2,1,4,2,3,5] then the histogram printed looks like this:
 
    0 : **
@@ -56,6 +57,7 @@
   {
     // instance variable for frequencies of each integer in input ArrayList
     private ArrayList <Integer> _frequency;
+    //public ArrayList <Integer> _frequency;
   
   
     //*************** QUESTION 02 **************************
@@ -64,51 +66,106 @@
     //          _frequency.get(i) returns frequency of i in data
     //eg, for data [2,3,2,5,2,3]
     //  _frequency would be [0,0,3,2,0,1]
-    public StatPrinter( ArrayList <Integer> data ) 
-    { 
+  
+    // O(n)
+    public StatPrinter( ArrayList <Integer> data )
+    {
       /* YOUR IMPLEMENTATION HERE */
+      _frequency = new ArrayList<Integer>();
+  
+      for(int i = 0; i <= max(data); i++){
+          _frequency.add(0);
+      }
+  
+      for(int i = 0; i < data.size(); i ++){
+          int freqIndex = data.get(i);
+          int value =  _frequency.get(freqIndex);
+          value ++;
+          _frequency.set(freqIndex, value);
+      }
+  
     }
   
   
     //*************** QUESTION 01 **************************
     //precond:  data.size() > 0
     //postcond: returns largest integer in data
-    public Integer max( ArrayList <Integer> data ) 
-    { 
-      
+  
+    //0(n)
+    public Integer max( ArrayList <Integer> data )
+    {
+  
+      {
+        int max = 0;
+        for (int i = 0; i < data.size(); i++){
+          if (data.get(i) > max) {
+            max = data.get(i);
+          }
+        }
+        return max;
+      }
     }
   
   
-    //*************** QUESTION 03 **************************
-    //postcond: returns true if i > 0 and i < _frequency.size() - 1
+    // *************** QUESTION 03 **************************
+    // postcond: returns true if i > 0 and i < _frequency.size() - 1
     //          and _frequency.get( i - 1 ) < _frequency.get( i )
     //          and _frequency.get( i + 1 ) < _frequency.get( i )
     //          Otherwise, returns false
-    //eg, for _frequency [1,2,1,5,5,8,2,4]
+    // eg, for _frequency [1,2,1,5,5,8,2,4]
     //    2 and 8 are local modes, so
     //    isLocalMode(0) -> false
     //    isLocalMode(1) -> true
     //    isLocalMode(5) -> true
-    public boolean isLocalMode( int i ) 
-    { 
-      /* YOUR IMPLEMENTATION HERE */
-    }
   
-  
-    //*************** QUESTION 04 **************************
-    //postcond: returns list of modes in _frequency
-    public ArrayList<Integer> getLocalModes() 
+  //O(1)
+    public boolean isLocalMode( int i )
     {
       /* YOUR IMPLEMENTATION HERE */
+        if (i > 0 && i < _frequency.size() - 1){
+          if((_frequency.get( i - 1 ) < _frequency.get( i )) && (_frequency.get( i + 1 ) < _frequency.get( i ))){
+                return true;
+          }else{
+                return false;
+          }
   
+        }else{
+            return false;
+        }
     }
   
   
-    //*************** QUESTION 05 **************************
-    //precond:  longestBar > 0
-    public void printHistogram( int longestBar ) 
+    // //*************** QUESTION 04 **************************
+    // //postcond: returns list of modes in _frequency
+  
+    //O(n)
+    public ArrayList<Integer> getLocalModes()
     {
-      /* YOUR IMPLEMENTATION HERE */ 
+      /* YOUR IMPLEMENTATION HERE */
+        ArrayList <Integer> localModes = new ArrayList<Integer>();
+        for(int i = 0; i < _frequency.size(); i++){
+           if(isLocalMode(i)){
+              localModes.add(_frequency.get(i));    //Adds the actual local mode
+              //localModes.add(i);                  //Adds the index of the local mode
+           }
+        }
+        return localModes;
     }
-   
+  
+  
+    // //*************** QUESTION 05 **************************
+    // //precond:  longestBar > 0
+    //O(n^2)
+    public void printHistogram( int longestBar )
+    {
+      /* YOUR IMPLEMENTATION HERE */
+        for(int i = 0; i < _frequency.size(); i++){
+          System.out.print(i + " : ");
+          for(int j = 0; j < (longestBar/(max(_frequency))) * _frequency.get(i); j++){
+              System.out.print("*");
+          }
+          System.out.println();
+        }
+    }
+  
   }//end class StatPrinter

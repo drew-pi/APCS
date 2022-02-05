@@ -1,8 +1,9 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
+// Team Blue Pandas (Jacob Ng, PreGuac, Andrew Piatetsky, Burnt Peanut, Emily Ortiz, Applesauce)
+// APCS pd6
 // L05 -- pulling it together
 // 2022-02-03r
-// time spent:  hrs
+// time spent: 2 hrs
+
 
 /***
  * class StatPrinterApp
@@ -38,11 +39,14 @@ public class StatPrinterApp
 
     StatPrinter sp1 = new StatPrinter( al1 );
 
-    /*
+
       System.out.println( "sp1 testing... " );
       sp1.max( al1 );
+      //System.out.println( sp1.max( al1 ) );
+      //System.out.println(sp1._frequency);
+      //System.out.println(sp1._frequency.size());
       sp1.printHistogram( 50 );
-    */
+
 
 
     //construct data [2,3,2,5,2,3]
@@ -65,6 +69,7 @@ public class StatPrinterApp
     }
     System.out.println( "histogram:" );
     sp2.printHistogram( 50 );
+
   }
 
 }//end StatPrinterApp
