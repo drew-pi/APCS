@@ -1,0 +1,39 @@
+// Team Blue Pandas (Jacob Ng, PreGuac, Andrew Piatetsky, Burnt Peanut, Emily Ortiz, Applesauce)
+// APCS pd6
+// L05 -- pulling it together
+// 2022-02-03r
+// time spent: 15min
+
+
+
+
+QCC
+Faster, but more memory?
+    - Thinking: Doesn't it take a lot of memory to create so many tiny arrays, for an array of length n, you would have to create an n number of 1 item arrays 
+
+
+DISCO
+Faster when more people doing it, not just one director
+
+
+
+FIRMWARE
+
+When given a deck: 
+1. Divide deck in two (based on just eyeballing it)
+2. Give deck to two people
+
+When only have one card / sorted cards
+1. Find the person who gave it to you 
+2. Give them your card
+
+When given card(s)
+1. Sort the card into your deck by using our merge algo
+2. Give your cards to the person that gave them to you
+
+
+
+
+
+
+
