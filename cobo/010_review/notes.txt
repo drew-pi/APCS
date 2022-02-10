@@ -1,0 +1,20 @@
+Answers:
+
+Activity 1:
+1a. public static double sentimentVal( String word )
+1b. This method requires a String input, if you do not input a String it will throw an error (incorrect type)
+1c. This method returns whatever value comes from "sentiment.get(word.toLowerCase())" or a 0, if that fails. The return type is double.
+
+2.
+sentimentalVal("accidental") -> -2.07
+sentimentalVal("account") -> 0.64
+sentimentalVal("acceptable") -> -0.12
+
+3a. This one would compile because you're inputing the correct type into the method and the variable being filled by the method call is the correct type (sentimentalVal always returns a double)
+3b. It would not compile because the input type is a double, not the required String type. And word, the variable being filled up by the method call is the wrong type, so it would not work.
+3c. The input types are correct, and the variable taking the value of the method call is correct, however there are too many inputs which will result in an error.
+
+
+
+
+
