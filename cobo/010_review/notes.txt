@@ -27,7 +27,7 @@ sentimentalVal("acceptable") -> -0.12
 
 
 Activity 2:
-1. 
+1.
 public static double totalSentiment (String fileName) {
     String text = textToString(fileName);
     String[] s = text.split(" ");
@@ -38,7 +38,7 @@ public static double totalSentiment (String fileName) {
     return total;
     }
 
-2. totalSentimental("SimpleReview.txt") -> -4.06 
+2. totalSentimental("SimpleReview.txt") -> -4.06
 
 3.
 public static int starRating(String fileName) {
@@ -52,7 +52,7 @@ Then I used a for each loop to find the sentimental value of each word and combi
 
 5b. We could add a base line (add some positive number to make the results fit closer to real life). We could disregard words that are very neutral, since they could, in theory mess with the results.
 
-6. His code would always either return 4 or 0, since the first check asks if any number is LESS than 15, and if it's greater or equal to 15, then it goes straight to the else statement at the end. Since all of the other if 
+6. His code would always either return 4 or 0, since the first check asks if any number is LESS than 15, and if it's greater or equal to 15, then it goes straight to the else statement at the end. Since all of the other if
 statements fit under the LESS than 15 range, they will never be activated since the less than 15 check is performed first. He could fix it by just reordering all of his if statements- going from smallest check (i.e less than 0 to less than 15).
 
 Activity 3:
@@ -68,7 +68,20 @@ you can't call static methods when you create an object. However when you run ev
 6. We could reverse the if statement and set all of the positive adjectives to negative ones and vice versa.
 
 
+Activty 4:
 
+1. One reason you could do this is to spam a certain product on amazon or other online market place and make it loop unappealing and bad,so you can promote your own product over theirs.
+All the reasons that I can think of are malicious and want to harm someone/or their product in some way.
 
+2. One reason you could do this would be to advertise/make your own product look better to consumers on an online market place. This case is less malicious but it trying to manipulate other's for your benefit.
 
+3. What we could do is check the sentimental rating of a word, and then look for other words with a higher one.
 
+input a review. Turn it into array of strings. find values with "*" in the first index, check those words sentimental rating. Look in correct adjective text file to find a word with a higher sentimental rating.
+overwrite that index with the more sentimental word.
+
+5. It removes the first value of the string. "a place" would become " place", since the first arg in substring is inclusive.
+
+6. It was necessary to do that so that we can get an accurate sentimental value. Since it should not affect anything in the final review created.
+
+7.It could look for the highest (or lowest for negative reviews) rated reviews in a certain adjective file and then use only adjectives with a sentimental rating of n or higher (n being an arbitrary number that one could choose)

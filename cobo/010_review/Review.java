@@ -168,8 +168,8 @@ public class Review {
 
 
   /* THE HW SECTION - THIS IS ME AND MY GROUP MEMBERS WORK  */
-  
-  
+
+
   // Section 2, question 1:
   public static double totalSentiment (String fileName) {
     String text = textToString(fileName);
@@ -183,7 +183,7 @@ public class Review {
 
   // Section 2, question 3:
   public static int starRating(String fileName) {
-    
+
     double sentiment = totalSentiment(fileName);
     if (sentiment > 29) {
       return 4;
@@ -204,16 +204,16 @@ public class Review {
   public static String getAdj(String filename) {
     String positive = "";
     String negative = "";
-      
+
     String csv = textToString(filename);
-  
+
     System.out.println("");
-  
+
     String[] text = csv.split(" ");
-  
+
     for (String s : text) {
       if (Double.parseDouble(s.split(",")[1]) > 0) {
-  
+
         positive += " " + s.split(",")[0];
       }
       if (Double.parseDouble(s.split(",")[1]) <= 0) {
@@ -236,13 +236,18 @@ public class Review {
 
 
     for (int i = 0; i < text.length; i++) {
-      int randIndex = (int) (Math.random() * text.length);
+      int randIndexPos = (int) (Math.random() * positive.length);
+      int randIndexNeg = (int) (Math.random() * negative.length);
+
       if (text[i].indexOf("*") == 0) {
+
+        text[i] = text[i].substring(1);
+
         if (sentimentVal(text[i]) > 0) {
-          text[i] = positive[randIndex];
+          text[i] = positive[randIndexPos];
         }
         else {
-          text[i] = negative[randIndex];
+          text[i] = negative[randIndexNeg];
         }
       }
     }
@@ -255,8 +260,52 @@ public class Review {
   }
 
 
+  // replaces each word in a txt file with a "*" infront with a stronger word
+  public static String updatedFakeReview(String filename) {
+    String file = textToString(filename);
+    String[] text = file.split(" ");
+
+    String[] positive = textToString("positiveAdjectives.txt").split(" ");
+    String[] negative = textToString("negativeAdjectives.txt").split(" ");
+
+
+    for (int i = 0; i < text.length; i++) {
+      int randIndexPos = (int) (Math.random() * positive.length);
+      int randIndexNeg = (int) (Math.random() * negative.length);
+      if (text[i].indexOf("*") == 0) {
+        text[i] = text[i].substring(1);
+        if (sentimentVal(text[i]) > 0) {
+          while (true) {
+            if (sentimentVal(positive[randIndexPos]) > sentimentVal(text[i])) {
+              text[i] = positive[randIndexPos];
+              break;
+            }
+            randIndexPos = (int) (Math.random() * positive.length);
+          } // end of while loop
+        }
+        else {
+          while (true) {
+            if (sentimentVal(negative[randIndexNeg]) < sentimentVal(text[i])) {
+              text[i] = negative[randIndexNeg];
+              break;
+            }
+            randIndexNeg = (int) (Math.random() * negative.length);
+          } // end of while loop
+        }
+      }
+    } // end of for i loop
+
+    String stringText = "";
+    for (String s : text) {
+      stringText += " " + s;
+    }
+    return stringText.substring(1);
+  }
+
+
 
   public static void main(String[] args) {
+    System.out.println(updatedFakeReview("SampleReview.txt"));
     System.out.println(fakeReview("SampleReview.txt"));
   }
 }
