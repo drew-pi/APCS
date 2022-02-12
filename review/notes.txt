@@ -1,0 +1,87 @@
+/***
+// Team Whatever -- May Qiu and Andrew P.
+// APCS pd6
+// HW61 -- Instructions so Simple...
+// 2022-02-08t
+// time spent: 3 hrs (including in class time)
+/*
+
+
+
+
+Answers:
+
+Activity 1:
+1a. public static double sentimentVal( String word )
+1b. This method requires a String input, if you do not input a String it will throw an error (incorrect type)
+1c. This method returns whatever value comes from "sentiment.get(word.toLowerCase())" or a 0, if that fails. The return type is double.
+
+2.
+sentimentalVal("accidental") -> -2.07
+sentimentalVal("account") -> 0.64
+sentimentalVal("acceptable") -> -0.12
+
+3a. This one would compile because you're inputing the correct type into the method and the variable being filled by the method call is the correct type (sentimentalVal always returns a double)
+3b. It would not compile because the input type is a double, not the required String type. And word, the variable being filled up by the method call is the wrong type, so it would not work.
+3c. The input types are correct, and the variable taking the value of the method call is correct, however there are too many inputs which will result in an error.
+
+
+Activity 2:
+1.
+public static double totalSentiment (String fileName) {
+    String text = textToString(fileName);
+    String[] s = text.split(" ");
+    double total = 0;
+    for (String word : s) {
+        total += sentimentVal(word);
+    }
+    return total;
+    }
+
+2. totalSentimental("SimpleReview.txt") -> -4.06
+
+3.
+public static int starRating(String fileName) {
+    return 1; // no idea what I'm supposed to do
+  }
+
+4. First I converted the text file into a String, and then, using the split(" ") method, to convert the String into a array of Strings (each index containing a seperate word)
+Then I used a for each loop to find the sentimental value of each word and combined them, storing the sum in an external variable.
+
+5a. They do not, the highest rating I got was a 1 (sentimental score never got above a 7)
+
+5b. We could add a base line (add some positive number to make the results fit closer to real life). We could disregard words that are very neutral, since they could, in theory mess with the results.
+
+6. His code would always either return 4 or 0, since the first check asks if any number is LESS than 15, and if it's greater or equal to 15, then it goes straight to the else statement at the end. Since all of the other if
+statements fit under the LESS than 15 range, they will never be activated since the less than 15 check is performed first. He could fix it by just reordering all of his if statements- going from smallest check (i.e less than 0 to less than 15).
+
+Activity 3:
+
+3. indexOf returns the first occurance of the specified String, if it happens to be a word, then it returns the index of the first letter
+substring returns a String in the specified range [index 1 to index 2) (inclusive index 1 and exlusive index 2)
+It's is necessary to add 1 to position when copying the remainding part of the String because you don't want two spaces to be present.
+
+
+5. Static basically means that it is the same for each object, there are no variable globals being used and the value is always going to be the same when all else is kept the same.
+you can't call static methods when you create an object. However when you run everythin via the main method, static is the way to go
+
+6. We could reverse the if statement and set all of the positive adjectives to negative ones and vice versa.
+
+
+Activty 4:
+
+1. One reason you could do this is to spam a certain product on amazon or other online market place and make it loop unappealing and bad,so you can promote your own product over theirs.
+All the reasons that I can think of are malicious and want to harm someone/or their product in some way.
+
+2. One reason you could do this would be to advertise/make your own product look better to consumers on an online market place. This case is less malicious but it trying to manipulate other's for your benefit.
+
+3. What we could do is check the sentimental rating of a word, and then look for other words with a higher one.
+
+input a review. Turn it into array of strings. find values with "*" in the first index, check those words sentimental rating. Look in correct adjective text file to find a word with a higher sentimental rating.
+overwrite that index with the more sentimental word.
+
+5. It removes the first value of the string. "a place" would become " place", since the first arg in substring is inclusive.
+
+6. It was necessary to do that so that we can get an accurate sentimental value. Since it should not affect anything in the final review created.
+
+7.It could look for the highest (or lowest for negative reviews) rated reviews in a certain adjective file and then use only adjectives with a sentimental rating of n or higher (n being an arbitrary number that one could choose)
