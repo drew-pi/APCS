@@ -11,3 +11,6 @@ Some specific notes:
  - Some questions were very confusing because they were not CS related and we thought we had to somehow relate them to cs. (Like the "why would you want to leave a bad review question")
  - Our final project was to create a username/gamertag generator. We used the functions that we had already writtent to replace spaces with underscores in an inputted String.
  - Our group decided to divide the work since a lot of it was pretty straighforward and just time consuming.
+
+
+### Activity 5 file is called CreateUsername.java
