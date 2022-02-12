@@ -1,3 +1,11 @@
+// Team Blue Pandas (Jacob Ng, PreGuac, Andrew Piatetsky, Burnt Peanut, Emily Ortiz, Applesauce)
+// APCS pd6
+// L05 -- pulling it together
+// 2022-02-03r
+// time spent: 
+
+
+
 import java.util.Scanner;
 import java.io.File;
 import java.util.HashMap;

@@ -1,10 +1,8 @@
-/***
-// Team Whatever -- May Qiu and Andrew P.
+// Team Blue Pandas (Jacob Ng, PreGuac, Andrew Piatetsky, Burnt Peanut, Emily Ortiz, Applesauce)
 // APCS pd6
-// HW61 -- Instructions so Simple...
-// 2022-02-08t
-// time spent: 3 hrs (including in class time)
-/*
+// L05 -- pulling it together
+// 2022-02-03r
+// time spent: 
 
 
 
