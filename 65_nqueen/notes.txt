@@ -1,0 +1,29 @@
+// Team Blue Pandas (Jacob Ng, PreGuac, Andrew Piatetsky, Burnt Peanut, Emily Ortiz, Applesauce)
+// APCS pd6
+// HW65: How Many Queens Can a Thinker Place, If a Thinker Can Place Queens...
+// 2022-02-16
+// time spent: 2hours
+
+
+
+QCC:
+Is it cheating using a for loop in our recursive solve solution.
+
+
+DISCO:
+
+The recursion works by backtracking without actively backtracking. 
+Uses a previous version of the for loop to just move on to the next available position. 
+
+Drawing diagrams makes it much easier. 
+
+Going right 1, down 2 at first because that is the first available available position. 
+
+
+
+
+How it works?
+
+Places a queen at the first position (0,0), then tries to place a queen in the next column over (0,1), if that's possible than move to the next.
+Repeat until impossible (or solve on first try?), and then backtrack to the previous column and try a solution starting on the next row.
+Repeat until find a solution or don't.
