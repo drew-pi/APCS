@@ -1,3 +1,93 @@
+## Tuesday 2022-2-15 :: 8 Queens Puzzle :: by Andrew Piatetsky
+
+**Interesting Tech News:** [Cool stuff on Windows soon](https://www.cnet.com/tech/services-and-software/windows-11-finally-adds-android-apps-heres-how-to-download-them/)
+
+#### Do Now
+ - Standard Trio Config
+ - Converse with all neighbors about Queens puzzle with K+S
+
+
+#### On Board
+  - Q0: C'est possible? (Is this possible?)
+      - a) How do you know
+      - b) Prove otherwise
+  - Q1: 8x8...7x7...9x9...NxN?
+  - Q2: How to make machine droit (useful)? 
+
+#### The Big Question: how do we solve?
+  - Brute force
+    - Student/Mr. Mykolyk's suggestions:
+      - Use a similar problem (8 Rook Puzzle) and eliminate all working possiblities that don't work for queens.
+      - Traveling salesman problem (more info [here](https://en.wikipedia.org/wiki/Travelling_salesman_problem)) - Can either use brute force or start going through down a certian possiblity until there is some sort of dead end, then try a different path (much faster and efficient)
+
+#### Class Work:
+  - Mr. Mykolyk passed out a worksheet to do with our trio.
+  - Instructions:
+    - 0 . Read for understanding.
+    - 1 . Summarize what each method does.
+    - 2 . List pre-/post conditions for each.
+    - 3 . Generate a more descriptive name for each.
+    - 4 . When entire team is confident in responses, send liason to lisadesk.
+  - Also here is the classwork (don't worry I didn't type it all out, I scanned the words with my phone). 
+ ```
+private int[][]board;
+public QueenBoard( int size ) {_board = new int[size][size]; }
+
+private boolean foo(int row, int col)
+{
+  if (_board[row][col] != 0){
+    return false;
+   }
+  _board[row][col] = 1;
+  int offset = 1;
+  while(col+offset < _board[row].length){
+    _board[row][col+offset]--;
+    if(row - offset >= 0){
+      _board[row-offset][col+offset]--;
+     }
+    if (row + offset < _board. length){
+      _board[row+offset][col+offset]--;
+    }
+    offset++;
+   }
+ return true
+}
+
+
+
+private boolean whutItDo0(int row, int col) 
+{
+  if (_board[row][col] != 1 ) {
+    return false;
+   }
+  _board[row][col]=0:
+  int offset = 1;
+  
+  while( col+offset < _board[row].length ) {
+    _board[row][col+offset]++;
+    if row - offset >= 0 ) {
+      _board[row-offset][col+offset]++;
+    }
+    if( row + offset < _board.length ) {
+      _board[row+offset][col+offset]++:
+    }
+    offset++;
+   }
+  return true;
+}
+```
+
+
+#### HW!!
+ - It isn't on the Assignments page, but the assignment was to continue working on the worksheet with our group (Piazza thread about it [here](https://piazza.com/class/kue5pmk0w7n70n?cid=543))
+
+
+#### Next LCT:
+
+Emily Ortiz (eortiz30@stuy.edu)
+
+
+
 ## Tuesday 2022-1-11 :: LAB04 REVIEW AND BIG O :: by Andrew Piatetsky
 
 **Interesting Tech News:** [Oopsie on Mars](https://www.cnet.com/news/pesky-pebbles-are-clogging-nasa-perseverance-mars-rovers-rock-sample-system/)
