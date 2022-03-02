@@ -2,7 +2,7 @@
 // APCS pd6
 // HW68: ...and T-, Tr-, Tri-, Tries Again Until It's Done
 // 2022-03-1
-// time spent: 1.5h
+// time spent: 2.5h 
 
 /***
  * SKELETON
@@ -21,10 +21,10 @@
  * QCC
  *
  * Mean execution times for boards of size n*n:
- * n=5   __s    across __ executions
- * n=6   __s    across __ executions
- * n=7   __s    across __ executions
- * n=8   __s    across __ executions
+ * n=5   0.144s    across 5 executions
+ * n=6   0.157s    across 5 executions
+ * n=7   0.308s    across 5 executions
+ * n=8   0.334s    across 5 executions
  * 
  * // didn't get to this part- will work on this tomorrow 
  *
@@ -53,29 +53,19 @@ public class KnightTour
 
     TourFinder tf = new TourFinder( n );
 
-    //clear screen using ANSI control code
-    System.out.println( "[2J" );
-
     //display board
-    System.out.println( tf );
+    // System.out.println( tf );
 
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //for fixed starting location, use line below:
     tf.findTour( 2, 2, 1 );
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //for random starting location, use lines below:
-    //int startX = //YOUR MATH CONSTRUCT FOR GENERATING A RANDOM LEGAL X VALUE
-    //int startY = //YOUR MATH CONSTRUCT FOR GENERATING A RANDOM LEGAL X VALUE
-    //tf.findTour( startX, startY, 1 );   // 1 or 0 ?
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // int startX = 2 + (int) Math.random() * n;
+    // int startY = 2 + (int) Math.random() * n;
 
+    // tf.findTour( startX, startY, 1 );   // 1 or 0 ?
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // PUSHING FARTHER...
-    // Systematically attempt to solve from every position on the board?
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
   }//end main()
 
 }//end class KnightTour
@@ -91,7 +81,7 @@ class TourFinder
   //constructor -- build board of size n x n
   public TourFinder( int n )
   {
-    // _sideLength = n-4;
+    _sideLength = n;
 
     //init 2D array to represent square board with moat
     _board = new int[n+4][n+4];
@@ -111,26 +101,10 @@ class TourFinder
         }
       }
     }
-
-    // System.out.println(stringVers(_board));
     //---------------------------------------------------------
 
   }//end constructor
-
-
-  // public String stringVers(int[][] arr) {
-    
-  //   String str = "";
-
-  //   for (int i = 0; i < arr.length; i++) {
-  //     for (int j = 0; j < arr.length; j++) {
-  //       str += arr[i][j] + " ";
-  //     }
-  //     str += "\n";
-  //   }
-
-  //   return str;
-  // }
+  
 
 
   /**
@@ -143,15 +117,6 @@ class TourFinder
     String retStr = "";
     //emacs shortcut: C-q, then press ESC
     //emacs shortcut: M-x quoted-insert, then press ESC
-
-    // int i, j;
-    // for( i=0; i < _sideLength+4; i++ ) {
-    //   for( j=0; j < _sideLength+4; j++ )
-    //     retStr = retStr + String.format( "%3d", _board[j][i] );
-    //   //"%3d" allots 3 spaces for each number
-    //   retStr = retStr + "\n";
-    // }
-    // return retStr;
 
     int i, j;
     for( i=0; i < _board.length; i++ ) {
@@ -190,10 +155,10 @@ class TourFinder
     //delay(50); //slow it down enough to be followable
 
     //if a tour has been completed, stop animation
-    if ( _solved ) System.exit(0);
+    if ( _solved ) System.exit(0); 
 
     //primary base case: tour completed
-    if ( moves > (_board.length * _board.length) ) {
+    if ( moves > (_sideLength * _sideLength) ) {
       _solved = true;
       System.out.println( this ); //refresh screen
       return;
@@ -210,9 +175,9 @@ class TourFinder
       //mark current cell with current move number
       _board[x][y] = moves;
 
-      System.out.println( this ); //refresh screen
+      // System.out.println( this ); //refresh screen
 
-      //delay(1000); //uncomment to slow down enough to view
+      // delay(1000); //uncomment to slow down enough to view
 
       /******************************************
        * Recursively try to "solve" (find a tour) from
@@ -224,71 +189,18 @@ class TourFinder
        *     . h . a .
       ******************************************/
       
-      // a.   _board[x+2][y+1]
-      // b.  _board[x+1][y+2]
-      // c.  _board[x-1][y+2]
-      // d.  _board[x-2][y+1]
-      // e.  _board[x-2][y+1]
-      // f.  _board[x-1][y-2]
-      // g.  _board[x+1][y-2]
-      // h.  _board[x+2][y-1]
+      findTour( x+1, y+2, moves+1 ); // a
+      findTour( x+2, y+1, moves+1 ); // b
+      findTour( x+2, y-1, moves+1 ); // c
+      findTour( x+1, y-2, moves+1 ); // d
+      findTour( x-1, y-2, moves+1 ); // e
+      findTour( x-2, y-1, moves+1 ); // f
+      findTour( x-2, y+1, moves+1 ); // g
+      findTour( x-1, y+2, moves+1 ); // h
 
-      for (int i = 0; i < 8; i++) {
-        if (i == 0) {
-          findTour(x+2,y+1,moves+1);
-          if (_board[x+2][y+1] != -1) {
-            _board[x+2][y+1] = 0;
-          }
-          // moves = moves-1;
-        }
-        if (i == 1) {
-          findTour(x+1,y+2,moves+1);
-          if (_board[x+1][y+2] != -1) {
-            _board[x+1][y+2] = 0;
-          }
-          // moves = moves-1;          
-        }
-        if (i == 2) {
-          findTour(x-1,y+2,moves+1);
-          if (_board[x-1][y+2] != -1) {
-            _board[x-1][y+2] = 0;
-          }
-          // moves = moves-1;
-        }
-        if (i == 3) {
-          findTour(x-2,y+1,moves+1);
-          if (_board[x-2][y+1] != -1) {
-            _board[x-2][y+1] = 0;
-          }
-          // moves = moves-1;
-        }
-        if (i == 4) {
-          findTour(x-2,y+1,moves+1);
-          if (_board[x-2][y+1] != -1) {
-            _board[x-2][y+1] = 0;
-          }
-          // moves = moves-1;
-        }
-        if (i == 5) {
-          findTour(x-1,y-2,moves+1);
-          if (_board[x-1][y-2] != -1) {_board[x-1][y-2] = 0;}
-          // moves = moves-1;
-          
-        }
-        if (i == 6) {
-          findTour(x+1,y-2,moves+1);
-          if (_board[x+1][y-2] != -1) {_board[x+1][y-2] = 0;}
-          // moves = moves-1;
-        }
-        if (i == 7) {
-          findTour(x+2,y-1,moves+1);
-          if (_board[x+2][y-1] != -1) {_board[x+2][y-1] = 0;}
-          // moves = moves-1;
-          
-        }        
-      }// end for loop
+      _board[x][y] = 0;
 
-      System.out.println( this ); //refresh screen
+      // System.out.println( this ); //refresh screen
     }
   }//end findTour()
 
