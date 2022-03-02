@@ -1,8 +1,8 @@
-// Clyde Sinclair
-// APCS pd0
-// HW68 -- recursively probing for a closed cycle
-// 2022-02-28m
-// time spent:  hrs
+// Team Blue Pandas (Jacob Ng, PreGuac, Andrew Piatetsky, Burnt Peanut, Emily Ortiz, Applesauce)
+// APCS pd6
+// HW68: ...and T-, Tr-, Tri-, Tries Again Until It's Done
+// 2022-03-1
+// time spent: 1.5h
 
 /***
  * SKELETON
@@ -25,6 +25,8 @@
  * n=6   __s    across __ executions
  * n=7   __s    across __ executions
  * n=8   __s    across __ executions
+ * 
+ * // didn't get to this part- will work on this tomorrow 
  *
  * POSIX PROTIP: to measure execution time from BASH, use time program:
  * $ time java KnightTour 5
