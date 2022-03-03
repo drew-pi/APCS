@@ -43,21 +43,26 @@ public class KnightTour
   public static void main( String[] args )
   {
     int n = 8;
+    int startX = 2;
+    int startY = 2;
 
     try {
       n = Integer.parseInt( args[0] );
+      startX = Integer.parseInt(args[1]);
+      startY = Integer.parseInt(args[2]);
     } catch( Exception e ) {
       System.out.println( "Invalid input. Using board size "
                           + n + "..." );
     }
 
+    System.out.println(startX + " " + startY);
     TourFinder tf = new TourFinder( n );
 
     //display board
     // System.out.println( tf );
 
     //for fixed starting location, use line below:
-    tf.findTour( 2, 2, 1 );
+    tf.findTour( startX, startY, 1 );
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //for random starting location, use lines below:
@@ -66,6 +71,9 @@ public class KnightTour
 
     // tf.findTour( startX, startY, 1 );   // 1 or 0 ?
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    System.out.println( tf );
+
   }//end main()
 
 }//end class KnightTour
