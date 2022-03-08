@@ -28,6 +28,7 @@ greater than arr[c]
 q1: What is its Big-Oh runtime?
 
 O(n) because runs a for loop that touches every element of the array
+
 */
 
 
@@ -35,7 +36,7 @@ O(n) because runs a for loop that touches every element of the array
 public class Mysterion {
 
 
-    public static int[] func (int[] arr, int a, int b, int c) {
+    public static int func (int[] arr, int a, int b, int c) {
 
         int midVal = arr[c];
 
@@ -50,7 +51,7 @@ public class Mysterion {
         }
         swap(arr, b, start);
 
-        return arr;
+        return midVal;
     }
 
     public static void swap(int[] arr, int a, int b) { // a and b are indexes
