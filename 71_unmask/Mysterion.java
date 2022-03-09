@@ -51,7 +51,7 @@ public class Mysterion {
         }
         swap(arr, b, start);
 
-        return midVal;
+        return start;
     }
 
     public static void swap(int[] arr, int a, int b) { // a and b are indexes
@@ -79,16 +79,20 @@ public class Mysterion {
         int[] arr2 = {10,9,8,7,6,5,4,3,2,1};
         int[] arr3 = {7,1,5,2,3};
         int[] arr4 = {10,9,8,7,6,5,4,3,2,1,0};
+        int[] arr5 = {0,4,3,2,1,5,9,8,7,6,10};
+        int[] arr6 = {0,2,1,3,10,5,9,8,7,6,4};
+        int[] arr7 = {0,1,2,3,10,5,9,8,7,6,4};
 
-        int[] arr = arr4;
+        int[] arr = arr2;
         int a = 0;
         int b = arr.length-1;
-        int c = 2;
+        int c = 3;
 
         System.out.println(arrToString(arr));
         System.out.println(arr[c]);
-        func ( arr, 0, b, c);
+        int x = func ( arr, 0, b, c);
         System.out.println(arrToString(arr));
+        System.out.println("x: " + x);
 
         // System.out.println("");
 
