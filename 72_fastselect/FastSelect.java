@@ -6,10 +6,10 @@
 
 /*
 ALGO:
-Working - 
+Working -
 start at the first index and then just go through the entire array until we find the yth smallest value
 
-not working - 
+not working -
 find the middle array and then either check the middle one on the left or right depending on if pivot is lower or higher than y. Ends when pivot is at index y-1
 
 
@@ -17,7 +17,7 @@ BEST CASE SCENARIO: (Describe best-case scenario and justify its Big-O classific
 when yth smallest is in the y+1 index, and in the middle of the array
 o(1) because doesn't even have to run loop
 
-WORST CASE SCENARIO: 
+WORST CASE SCENARIO:
 When its not in its correct spot and its an extreme such as the largest element or smallest element
 
 DISCO
@@ -75,32 +75,35 @@ public class FastSelect {
 
 
 
-    // fast select 
+    // fast select
     // O(nlogn)
-    public static int fastSelect(int[] arr, int xsmallest) { // not working for specific cases (in the case of arr in main method when the 7th largest number is requested)
+    public static int fastSelect(int[] arr, int y) { // not working for specific cases (in the case of arr in main method when the 7th largest number is requested)
 
-        System.out.println(arrToString(arr));
+        // indexs
+        int lo = 0;
+        int hi = arr.length-1;
+        int pivot = -1;
 
-        int midIndex = arr.length/2;
-        int partitionEnd = -1;
+        while (pivot != y-1) {
 
-        while (partitionEnd != xsmallest-1) {
-            System.out.println("partitioning the array at pivot: " + arr[midIndex]);
-            partitionEnd = partition(arr, 0, arr.length-1, midIndex);
-            System.out.println(arrToString(arr));
+            pivot = (lo + hi)/2;
 
-            if (partitionEnd > xsmallest-1) {  // greater so have to split in half first half
-                midIndex = partitionEnd/2;      
+            // System.out.println("partitioning the array at pivot: " + arr[pivot]);
+            pivot = partition(arr, lo, hi, pivot);
+            // System.out.println(arrToString(arr));
+
+            if (pivot > y-1) {  // greater so have to split in half first half
+                hi = pivot;
             }
-            else if (xsmallest-1 > partitionEnd) {
-                midIndex = (arr.length + partitionEnd)/2;
-                System.out.println(arr.length + " + " + partitionEnd + " / 2 = " + midIndex);
+            else if (pivot < y-1) {
+                lo = pivot;
+                // System.out.println(arr.length + " + " + partitionEnd + " / 2 = " + midIndex);
             }
 
-            System.out.println("midIndex " + midIndex);
-            System.out.println("partitionEnd " + partitionEnd);
+            // System.out.println("lo " + lo);
+            // System.out.println("hi " + hi);
         }
-        return arr[partitionEnd];
+        return arr[pivot];
     }
 
 
@@ -124,7 +127,7 @@ public class FastSelect {
 
         // int[] arr = {7,1,5,12,3};
         // int[] arr = {10,9,8,7,6,5,4,3,2,1};
-        int[] arr = {0,1,2,3,10,5,9,8,7,6,4};
+        int[] arr = {4,1,2,3,10,5,9,8,7,6};
 
 
         // fastSelect(arr, 1);
