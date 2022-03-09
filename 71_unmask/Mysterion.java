@@ -75,36 +75,39 @@ public class Mysterion {
 
     public static void main(String[] args) {
         
-        int[] arr1 = {7,1,5,12,3};
-        int[] arr2 = {10,9,8,7,6,5,4,3,2,1};
-        int[] arr3 = {7,1,5,2,3};
-        int[] arr4 = {10,9,8,7,6,5,4,3,2,1,0};
-        int[] arr5 = {0,4,3,2,1,5,9,8,7,6,10};
-        int[] arr6 = {0,2,1,3,10,5,9,8,7,6,4};
-        int[] arr7 = {0,1,2,3,10,5,9,8,7,6,4};
+        // int[] arr1 = {7,1,5,12,3};
+        // int[] arr2 = {1,3,5,12,7};
+        int[] arr2 = {21,1,3,6,9,15,11,2,10}; 
+        int[] arr3 = {1,3,6,2,9,15,11,21,10}; // after partition at pivot 4
+        int[] arr4 = {1,3,2,6,9,15,11,21,10};// after partition at pivot 2
 
-        int[] arr = arr2;
+
+        // int[] arr3 = {7,1,5,2,3};
+        // int[] arr4 = {10,9,8,7,6,5,4,3,2,1,0};
+        // int[] arr5 = {0,4,3,2,1,5,9,8,7,6,10};
+        // int[] arr6 = {0,2,1,3,10,5,9,8,7,6,4};
+        // int[] arr7 = {0,1,2,3,10,5,9,8,7,6,4};
+
+        int[] arr = arr4;
         int a = 0;
         int b = arr.length-1;
-        int c = 3;
+        int c = 4;
 
-        System.out.println(arrToString(arr));
-        System.out.println(arr[c]);
-        int x = func ( arr, 0, b, c);
-        System.out.println(arrToString(arr));
-        System.out.println("x: " + x);
+        // System.out.println(arrToString(arr));
 
-        // System.out.println("");
+        // System.out.println(arr[c]);
+        // int x = func ( arr, 0, b, c);
 
-        // System.out.println(arrToString(arr2));
-        // func ( arr2, 0, 4, 2);
-        // System.out.println(arrToString(arr2));
+        // System.out.println(arrToString(arr));
+        // System.out.println("x: " + x);
 
-        // System.out.println("");
+        for (int i = 0; i < arr2.length; i ++) {
+            System.out.println(arrToString(arr2));
+            func(arr2,0,arr2.length-1,i);
+        }
 
-        // System.out.println(arrToString(arr3));
-        // func ( arr3, 0, 4, 2);
-        // System.out.println(arrToString(arr3));
+        System.out.println(arrToString(arr2));
+
 
 
 

@@ -1,3 +1,36 @@
+// JAB (Jeffery Tang, Andrew Piatetsky, Brian Kang)
+// APCS pd6
+// HW72 -- FastSelect
+// 2022-03-08
+// time spent:  2hrs
+
+/*
+ALGO:
+Working - 
+start at the first index and then just go through the entire array until we find the yth smallest value
+
+not working - 
+find the middle array and then either check the middle one on the left or right depending on if pivot is lower or higher than y. Ends when pivot is at index y-1
+
+
+BEST CASE SCENARIO: (Describe best-case scenario and justify its Big-O classification.)
+when yth smallest is in the y+1 index, and in the middle of the array
+o(1) because doesn't even have to run loop
+
+WORST CASE SCENARIO: 
+When its not in its correct spot and its an extreme such as the largest element or smallest element
+
+DISCO
+The previous pivot values don't change position when partitioned again
+
+QCC
+How can we make a O(logn) algo using a O(n) algo
+
+
+Include test cases in main() method illustrating each best- and worst-case scenario.
+
+*/
+
 public class FastSelect {
 
 
@@ -43,8 +76,8 @@ public class FastSelect {
 
 
     // fast select 
-
-    public static int fastSelect(int[] arr, int xsmallest) {
+    // O(nlogn)
+    public static int fastSelect(int[] arr, int xsmallest) { // not working for specific cases (in the case of arr in main method when the 7th largest number is requested)
 
         System.out.println(arrToString(arr));
 
@@ -68,6 +101,22 @@ public class FastSelect {
             System.out.println("partitionEnd " + partitionEnd);
         }
         return arr[partitionEnd];
+    }
+
+
+    // groups method - working O(n)
+
+    public static int GroupFastSelect(int[] arr, int y){
+        int a = partition(arr, 0, arr.length - 1, 0);
+        while (y-1 != a){
+            if (y-1 > a) {
+            a = partition(arr, 0, arr.length - 1, a + 1);
+            }
+            else {
+            a = partition(arr, 0, arr.length - 1, a - 1);
+            }
+        }
+        return arr[a];
     }
 
 
