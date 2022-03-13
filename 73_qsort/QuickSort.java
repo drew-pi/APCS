@@ -29,57 +29,78 @@
 public class QuickSort {
 
     static QuickSelect q = new QuickSelect();
+    static Partition p = new Partition();
 
-    // partitions the array based on pivot pos c
-    public static int partition (int[] arr, int lo, int hi, int pivot) {
+    // // partitions the array based on pivot pos c
+    // public static int partition (int[] arr, int lo, int hi, int pivot) {
 
-        int midVal = arr[pivot];
+    //     int midVal = arr[pivot];
 
-        swap(arr, pivot, hi);
-        int start = lo;
+    //     swap(arr, pivot, hi);
+    //     int start = lo;
 
-        for (int i = lo; i < hi; i++) {
-            if (midVal > arr[i]) {
-                swap(arr,start,i);
-                start+=1;
-            }
-        }
-        swap(arr, hi, start);
+    //     for (int i = lo; i < hi; i++) {
+    //         if (midVal > arr[i]) {
+    //             swap(arr,start,i);
+    //             start+=1;
+    //         }
+    //     }
+    //     swap(arr, hi, start);
 
-        return start;
-    }
+    //     return start;
+    // }
 
-    // swaps two array values at index a and b
-    public static void swap(int[] arr, int a, int b) { // a and b are indexes
-        int oldA = arr[a];
+    // // swaps two array values at index a and b
+    // public static void swap(int[] arr, int a, int b) { // a and b are indexes
+    //     int oldA = arr[a];
 
-        arr[a] = arr[b];
+    //     arr[a] = arr[b];
 
-        arr[b] = oldA;
-    }
+    //     arr[b] = oldA;
+    // }
 
 
-    // returns a string representation of an array
-    public static String arrToString(int[] arr) {
-        String str = "{";
-        for (int i : arr) {
-            str += i + ",";
-        }
-        str = str.substring(0, str.length()-1);
-        str += "}";
-        return str;
-    }
+    // // returns a string representation of an array
+    // public static String arrToString(int[] arr) {
+    //     String str = "{";
+    //     for (int i : arr) {
+    //         str += i + ",";
+    //     }
+    //     str = str.substring(0, str.length()-1);
+    //     str += "}";
+    //     return str;
+    // }
     
 
-    // O(n^2 logn) - couldn't figure out how to find a better pivot position (worked for around 50min tryint to figure it out)
+    // // O(n^2 logn) - couldn't figure out how to find a better pivot position (worked for around 50min tryint to figure it out)
+    // public static void qsort (int[] arr) {
+
+    //     System.out.println(arrToString(arr));
+
+    //     for (int i = 1; i < arr.length; i++) {
+    //         q.fastSelect(arr, i);
+    //     }
+    //     System.out.println(arrToString(arr));
+    // }
+
     public static void qsort (int[] arr) {
 
-        System.out.println(arrToString(arr));
+        sort(arr, 0, arr.length-1); 
+    }
 
-        for (int i = 1; i < arr.length; i++) {
-            q.fastSelect(arr, i);
+
+    // pivot position is first position in the partition
+    public static void sort( int[] arr, int lo, int hi) {
+
+        if (lo > hi) {
+            return;
         }
-        System.out.println(arrToString(arr));
+        else {
+            int finalPlace = p.partition(arr, lo, hi, lo);
+
+            sort(arr, lo, finalPlace-1);
+            sort(arr, finalPlace+1, hi);
+        }
 
     }
 
@@ -88,6 +109,14 @@ public class QuickSort {
 
         int arr[] = {10,9,2,3,6,7,1,5,8,4};
 
+        // p.partition(arr, 0, arr.length-1, 0);
+        // System.out.println(p.arrToString(arr));
+
+
+        System.out.println(p.arrToString(arr));
+
         qsort(arr);
+
+        System.out.println(p.arrToString(arr));
     }
 }
