@@ -104,6 +104,8 @@ public class LLNode {
 
 
         while (next != null) {
+            System.out.println(next);
+            System.out.println(first);
             // System.out.println("first " + first); // seems like first is not changing, no idea why (since Java is pass by reference) but seems like it works
             // System.out.println("next: " + next);
             System.out.println(next.getCargo());
