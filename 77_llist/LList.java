@@ -1,3 +1,30 @@
+// JAB (Jeffery Tang, Andrew Piatetsky, Brian Kang)
+// APCS pd6
+// HW75: Nodal Recall
+// 2022-03-013
+// time spent:  30mins
+
+/*
+DISCO:
+Its fun adding stuff and removing it because the pointers can be so easily manipulated
+
+QCC:
+
+ALGO INSERT:
+create new arbitrary node, traverse the list to the node at desired index-1
+new node and node at index-1 point to the same thing (node at specified index)
+then the node at index-1 changes its pointer to the new node. Therefore adding a new element in the desired position
+
+ALGO REMOVE:
+traverse list to the node at index-1
+store the value of node at index to return later
+node at index-1 changes its pointer the the node at index+1, erasing all reference to node at index allowing java to remove it from storage
+
+*/
+
+
+
+
 public class LList implements List {
 
     // instance variables
