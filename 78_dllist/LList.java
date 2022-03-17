@@ -1,8 +1,8 @@
 // JAB (Jeffery Tang, Andrew Piatetsky, Brian Kang)
 // APCS pd6
-// HW75: Nodal Recall
-// 2022-03-013
-// time spent:  30mins
+// HW78: Double Up
+// 2022-03-016
+// time spent:  1 hour
 
 /*
 DISCO:
@@ -10,7 +10,7 @@ Its fun adding stuff and removing it because the pointers can be so easily manip
 
 QCC:
 
-did not change anything, just added an extra line to add a pointer to the previous index
+did not change anything with the core algo, just added a few extra lines to add and change backward pointers, also implemented a lot of checks for null nodes
 
 
 ALGO INSERT: 
