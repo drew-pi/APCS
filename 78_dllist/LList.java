@@ -10,7 +10,10 @@ Its fun adding stuff and removing it because the pointers can be so easily manip
 
 QCC:
 
-ALGO INSERT:
+did not change anything, just added an extra line to add a pointer to the previous index
+
+
+ALGO INSERT: 
 create new arbitrary node, traverse the list to the node at desired index-1
 new node and node at index-1 point to the same thing (node at specified index)
 then the node at index-1 changes its pointer to the new node. Therefore adding a new element in the desired position
@@ -42,8 +45,13 @@ public class LList implements List {
     //add node to beginning of list, containing input String as its data
     // Best case - O(1), worst case - O(n)
     public boolean add( String x ) {
-        LLNode tmp = new LLNode(x, _head);
+        LLNode tmp = new LLNode(x, _head, null);
+
+        // adds the element and then sets the new node as the previous of the node at index 1
+        if (_head != null) { _head.setPrevious(tmp); }
+
         _head = tmp;
+
         _size +=1;
         
         return true;
@@ -62,6 +70,7 @@ public class LList implements List {
         if (index == 0) {
             oldVal = _head.getCargo();
             _head = _head.getNext();
+            if (_head != null) { _head.setPrevious(null); }
             return oldVal;
         }
         
@@ -75,22 +84,24 @@ public class LList implements List {
         oldVal = tmp.getNext().getCargo();
         // remove all reference to the node that we want to delete and set the pointer of the node at index-1 to the node at index+1
         tmp.setNext(tmp.getNext().getNext());
+        // after removal of reference, set previous reference to 
+        if (tmp.getNext() != null) { tmp.getNext().setPrevious(tmp); }
 
         return oldVal;
 
     }
 
     // inserts the specified value at the specified index
-    public void insert( int index, String value) {
+    public void add( int index, String value) {
         if ( index < 0 || index >= size() ) { throw new IndexOutOfBoundsException(); }
         
-        _size += 1;
-
         // if want to insert at the beginning just need to add it to the beginning
         if (index == 0) {
             add(value);
             return;
         }
+
+        _size += 1;
 
         LLNode newNode = new LLNode(value);
         LLNode tmp = _head;
@@ -101,8 +112,12 @@ public class LList implements List {
 
         // newNode and node at index-1 point to the same thing
         newNode.setNext(tmp.getNext());
+        // new node is now connected to index+1 and index-1
+        newNode.setPrevious(tmp);
         // tmp points at newNode
         tmp.setNext(newNode);
+
+        newNode.getNext().setPrevious(newNode);
 
 
     }
@@ -143,7 +158,17 @@ public class LList implements List {
         if (_head == null) {
             return null;
         }
-        return _head.toString();
+
+        String str = "";
+
+        LLNode tmp = _head;
+        while (tmp != null) {
+            str += tmp.getPrevious() + " < -- " + tmp.toString() + " -- > " + tmp.getNext() + "\n";
+            tmp = tmp.getNext();
+        }
+
+        return str;
+        // return _head.toString();
     }
 
 
@@ -155,21 +180,28 @@ public class LList implements List {
         l.add("cat");
 
         l.add("moose");
+        l.add("monke");
+        l.add("alligator");
 
 
         System.out.println(l);
+        System.out.println(l.size());
 
         l.set(2, "goat");
 
         System.out.println(l);
 
-        // l.remove(1);
+        // System.out.println(l);
+
+        l.add(4, "boo");
 
         System.out.println(l);
+        System.out.println(l.size());
 
-        l.insert(3, "boo");
+        l.remove(5);
 
         System.out.println(l);
+        System.out.println(l.size());
 
 
     }
