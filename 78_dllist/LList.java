@@ -32,11 +32,13 @@ public class LList implements List {
 
     // instance variables
     private LLNode _head;
+    private LLNode _tail;
     private int _size;
 
 
     // default constructor - initializes head to null and size to 0
     public LList( ) {
+        _tail = null;
         _head = null;
         _size = 0;
     }
