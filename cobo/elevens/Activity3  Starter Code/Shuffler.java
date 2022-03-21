@@ -52,22 +52,20 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void perfectShuffle(int[] values) {
+		int[] shuffled = new int[values.length];
 		int k = 0;
-		ArrayList<Integer> vals = new ArrayList<Integer>(values.length);
 		for (int j = 0; j < (values.length + 1) / 2; j++) {
-			vals.set(k, values[j]);
+			shuffled[k] = values[j];
 			k += 2;
 		}
 
 		k = 1;
 		for (int j = (values.length + 1) / 2; j < values.length; j++) {
-			vals.set(k, values[j]);
+			shuffled[k] = values[j];
 			k += 2;
 		}
 
-		for (int i = 0; i < vals.size(); i ++ ) {
-			values[i] = vals.get(i);
-		}
+		values = shuffled;
 	}
 
 	/**
@@ -81,18 +79,35 @@ public class Shuffler {
 	 * searching for an as-yet-unselected card.
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
-
 	public static void selectionShuffle(int[] values) {
-		ArrayList<Integer> cards = new ArrayList<Integer>(values.length);
+		// for (int j : values) System.out.print(j + " ");
 
-		for (int k = cards.size() - 1; k > 0; k--) {
-			int size = k + 1;
-			int start = 0;
-			int randPos = (int) (Math.random() * size) + start;
-			int temp = cards.get(k);
-			cards.set(k, cards.get(randPos));
-			cards.set(randPos, temp);
+		int[] shuffled = new int[values.length];
+
+		ArrayList<Integer> vals = new ArrayList<Integer>(values.length);
+
+		for (int i :  values) {
+			vals.add(i);
 		}
+
+		int randIndex = 0;
+
+		int i = 0;
+		while (vals.size() > 0) {
+			
+			randIndex = (int) (Math.random() * vals.size());
+			shuffled[i] = vals.remove(randIndex);
+			i ++;
+		}
+		// for (int j : shuffled) System.out.print(j + " ");
+		values = shuffled;
+		// System.out.println("");
+		// for (int j : values) System.out.print(j + " ");
+
+		// for (int j = 0; j < shuffled.length; j++)  values[j] = shuffled[j];
+
+		// System.out.println("");
+		// for (int j : values) System.out.print(j + " ");
 
 
 	}
