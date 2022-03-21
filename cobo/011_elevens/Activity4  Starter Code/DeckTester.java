@@ -8,6 +8,7 @@ public class DeckTester {
 	 *	@param args is not used.
 	 */
 	public static void main(String[] args) {
+		/*
 		String[] ranks = {"jack", "queen", "king"};
 		String[] suits = {"blue", "red"};
 		int[] pointValues = {11, 12, 13};
@@ -50,6 +51,18 @@ public class DeckTester {
 		System.out.println("  deal: " + d.deal());
 		System.out.println();
 		System.out.println();
+		*/
+
+		String[] ranks = {"2","3","4","5","6","7","8","9","10","jack", "queen", "king","ace"};
+		String[] suits = {"Spades", "Hearts","Diamonds","clubs"};
+		int[] pointValues = {2,3,4,5,6,7,8,9,10,11, 12, 13,14};
+		Deck d = new Deck(ranks, suits, pointValues);
+
+
+		System.out.println(d);
+		System.out.println(d.size());
+
+
 
 		/* *** TO BE COMPLETED IN ACTIVITY 4 *** */
 	}
