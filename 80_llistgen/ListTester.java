@@ -11,8 +11,9 @@ public class ListTester
   public static void main( String[] args )
   {
 
+    /*
     //instantiate... var type List, obj type LList
-    List wu = new LList();
+    List<String> wu = new LList<String>();
 
     System.out.println(wu);
     wu.add("RZA");
@@ -54,8 +55,19 @@ public class ListTester
       wu.remove(n);
       System.out.println("Updated list: " + wu);
     }
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+    List<Character> list = new LList<Character>();
+
+    for (int i = 0; i < 10; i++) {
+      list.add( 'c' );
+    }
+    
+    System.out.println(list);
+    System.out.println(list.size());
+
+
+
   }//end main()
 
 }//end class

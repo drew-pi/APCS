@@ -1,0 +1,14 @@
+JAB (Jeffery Tang, Andrew Piatetsky, Brian Kang)APCS pd6
+HW80: Generically Speaking
+2022-03-24
+time spent:  45minutes
+
+
+Generic is very simple to code, you just have to change everything to a place holder (T or other letter/word) and then object
+everywhere else because you can only add a new node through the use of the LList, so it makes sure that all of the objects
+are correct
+
+Use find and replace a lot.
+
+Cool new syntax Object<Type> (type is the place holder that you can use in the code - can initialize variables using T and type
+cast things to T)

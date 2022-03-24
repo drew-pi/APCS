@@ -140,7 +140,6 @@ public class LList<T> implements List<T> //your List.java must be in same dir
   public int size() { return _size; }
 
   //--------------^  List interface methods  ^--------------
-ace prov
 
   //--------------v  Helper methods  v--------------
 
