@@ -1,14 +1,14 @@
-JAB (Jeffery Tang, Andrew Piatetsky, Brian Kang)APCS pd6
-HW80: Generically Speaking
-2022-03-24
+JAB (Jeffery Tang, Andrew Piatetsky, Brian Kang)
+APCS pd6
+HW82: Roll Your Own Iterator
+2022-03-27
 time spent:  45minutes
 
 
-Generic is very simple to code, you just have to change everything to a place holder (T or other letter/word) and then object
-everywhere else because you can only add a new node through the use of the LList, so it makes sure that all of the objects
-are correct
+Having a nested class makes stuff pretty easy, just good for organizing. Still don't understand why they can't be the same class in general,
+(for this case I understand why, because need to have something independent from the actual class to have a wide range of things implement it)
 
-Use find and replace a lot.
-
-Cool new syntax Object<Type> (type is the place holder that you can use in the code - can initialize variables using T and type
-cast things to T)
+Generally not too difficult, but only error that I got stuck on was the one where the method has to return an object of type T, and didn't 
+know how to do that without returning something random 
+ - you cant initialize a type T
+- and you can't just return it, so had to use something else random like getCargo of dummy node
