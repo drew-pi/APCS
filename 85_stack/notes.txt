@@ -1,0 +1,13 @@
+// JAB (Jeffery Tang, Andrew Piatetsky, Brian Kang)
+// APCS pd6
+HW85: Leon Leonwood Stack
+// 2022-03-30
+// time spent:  30min
+
+
+
+
+The code for each one was actually exactly the same. So could have even copied and pasted one into the other and replaced the constructor and _stack instance var.
+
+Learned that " i =- 1 " sets i to -1, and does not actually decrease it by 1. Spent 15mins trying to find what was wrong and that was what happened
+
