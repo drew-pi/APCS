@@ -1,0 +1,15 @@
+// JAB (Jeffery Tang, Andrew Piatetsky, Brian Kang)
+// APCS pd6
+HW86: What a Racket
+// 2022-03-31
+// time spent:  1hour
+
+
+DISCO
+
+Working with arrays sucks in Java, had to have 2 for loops to concenate a string
+
+
+QCC
+
+Is there a shorted way to do this. Pretty proud of our algo, but seems so long and unneat

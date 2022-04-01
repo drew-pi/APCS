@@ -21,7 +21,7 @@ public class Stckr
     }
 
     while (!cakes.isEmpty()) {
-        System.out.println(cakes.peekTop());
+        System.out.println(cakes.peekTop()); // should be the same
         System.out.println(cakes.pop());
     }
     //...
