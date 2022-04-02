@@ -3,24 +3,24 @@
  * Implements a node, for use in lists and other container classes.
  *****************************************************/
 
-public class DLLNode<T> {
+public class SLLNode<T> {
 
   private T _cargo;    //cargo may only be of type T
-  private DLLNode<T> _nextNode; //pointers to next, prev DLLNodes
+  private SLLNode<T> _nextNode; //pointers to next, prev DLLNodes
 
 
   // constructor -- initializes instance vars
-  public DLLNode( T value, DLLNode<T> next )
+  public SLLNode( T value, SLLNode<T> next )
 {
 _cargo = value;
 _nextNode = next;
   }
 
 
-  //--------------v  ACCESSORS  v--------------
+  //--------------v  ASCCESSORS  v--------------
   public T getCargo() { return _cargo; }
 
-  public DLLNode<T> getNext() { return _nextNode; }
+  public SLLNode<T> getNext() { return _nextNode; }
 
   //--------------^  ACCESSORS  ^--------------
 
@@ -32,8 +32,8 @@ _cargo = newCargo;
 return foo;
   }
 
-  public DLLNode<T> setNext( DLLNode<T> newNext ) {
-DLLNode<T> foo = getNext();
+  public SLLNode<T> setNext( SLLNode<T> newNext ) {
+SLLNode<T> foo = getNext();
 _nextNode = newNext;
 return foo;
   }
