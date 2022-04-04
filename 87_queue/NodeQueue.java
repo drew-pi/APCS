@@ -29,8 +29,8 @@ public class NodeQueue<QUASAR> implements Queue<QUASAR>{
     if (isEmpty()) return null;
 
     _size = _size - 1;
-    SLLNode<QUASAR> retNode = _tail;
-    _tail = _tail.getNext();
+    SLLNode<QUASAR> retNode = _head;
+    _head = _head.getNext();
     return retNode.getCargo();
 
 
@@ -41,49 +41,49 @@ public class NodeQueue<QUASAR> implements Queue<QUASAR>{
   public void enqueue( QUASAR x ) {
     if (isEmpty()) {
       _head = _tail = new SLLNode<QUASAR>(x, null);
-    _size += 1;
+     _size += 1;
       return;
     }
 
     _size += 1;
     SLLNode<QUASAR> sl = new SLLNode<QUASAR>(x,null);
-    _head.setNext(sl);
-    _head = sl;
+    _tail.setNext(sl);
+    _tail = sl;
   }
 
   //Returns true if this queue is empty, otherwise returns false.
   public boolean isEmpty() {
-    return _size ==0;
+    return _size == 0;
   }
 
   //Returns the first element of the queue without dequeuing it.
   public QUASAR peekFront() {
-    return _tail.getCargo();
+    return _head.getCargo();
   }
 
 
   public String toString() {
-    SLLNode<QUASAR> dummy = _tail;
+    SLLNode<QUASAR> dummy = _head;
 
     Object[] arr = new Object[_size];
-    
-    int i = _size-1;
+
+    int i = 0;
     while (dummy != null) {
       arr[i] = dummy.getCargo();
       dummy = dummy.getNext();
-      i = i -1;
+      i += 1;
     }
 
     String retStr = "";
     for (Object o : arr) retStr += (QUASAR) o + " ";
 
     return retStr;
-     
+
   }
 
 
   public static void main(String[] args) {
-    
+
     NodeQueue<String> nq = new NodeQueue<String>();
 
     nq.enqueue("hello");
