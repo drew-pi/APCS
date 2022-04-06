@@ -79,15 +79,22 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
   {
     if (isEmpty()) return null;
 
-    return null;
+    SWASHBUCKLE retVal = peekFront();
+    _front = _front.getNext();
+
+    return retVal;
+    
 
   }//O(?)
 
 
   public SWASHBUCKLE peekFront()
   {
+    for (int i = 0; i < 6; i++) {
+      sample();
+    }
 
-    return null;
+    return _front.getCargo();
 
   }//O(?)
 
@@ -100,52 +107,105 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
   public void sample ()
   { 
     // int lim = _size;
+    LLNode<SWASHBUCKLE> tmp1 = null;
+    LLNode<SWASHBUCKLE> front1 = null;
+    LLNode<SWASHBUCKLE> tmp2 = null;
+    LLNode<SWASHBUCKLE> front2 = null;
+
     LLNode<SWASHBUCKLE> dummy = _front;
-    // LLNode<SWASHBUCKLE>
 
 
-    while (dummy == null) {
-        
+    for (int i = 0; i < _size; i++) {
+
+      if ( (i % 2) == 0) {
+        if (tmp1 == null) {
+          tmp1 = dummy;
+          front1 = tmp1;
+        } else {
+          tmp1.setNext(dummy);
+          tmp1 = tmp1.getNext();
+        }
+
+      } else if ((i % 2) == 1) {
+        if (tmp2 == null) {
+          tmp2 = dummy;
+          front2 = tmp2;
+        } else {
+          tmp2.setNext(dummy);
+          tmp2 = tmp2.getNext();
+        }
+      }
+
+      dummy = dummy.getNext();
     }
 
-  }//O(?)
+    tmp1.setNext(null);
+    tmp2.setNext(null);
 
+    _front = null;
 
-  public void swap ( int x, int y ) {
-
-    // if (isEmpty()) return;
-
-    // LLNode<SWASHBUCKLE> dum1 = _front;
-    // LLNode<SWASHBUCKLE> dum2 = _front;
-
-    // for (int i = 0; i < x-1; i++) {
-    //     dum1 = dum1.getNext();
+    // for testing purposes
+    // while (front1 != null ) {
+    //   System.out.print(front1 + " ");
+    //   front1 = front1.getNext();
     // }
-
-    // System.out.println("dum1 " + dum1);
-
-    // for (int i = 0; i < y-1; i++) {
-    //     dum2 = dum2.getNext();
+    // System.out.println("");
+    
+    // while (front2 != null ) {
+    //   System.out.print(front2 + " ");
+    //   front2 = front2.getNext();
     // }
+    // System.out.println("");
 
-    // System.out.println("dum2 " + dum2);
+    // System.out.println(this.toString());
 
-    // LLNode<SWASHBUCKLE> temp = dum2.getNext().getNext();
+    dummy = null;
 
-    // dum2.setNext(dum1.getNext().getNext());
-    // dum1.getNext().setNext(temp.getNext());
-    // temp.setNext(dum1.getNext());
-    // dum1.setNext(temp);
+    int decider = (int) (Math.random() * 2);
 
+    if (decider == 0) {
+      System.out.println(decider);
+      _front = front1;
+      dummy = _front;
+      front1 = front1.getNext();
 
-    // while (temp.getNext() == null) {
-    //     System.out.println(temp);
-    //     temp = temp.getNext();
-    // }
+      while (front1 != null) {
+        dummy.setNext(front1);
+        front1 = front1.getNext();
+        dummy = dummy.getNext();
+      }
 
-    // System.out.println(temp);
-    // _end = temp;
-  }
+      while (front2 != null) {
+        dummy.setNext(front2);
+        front2 = front2.getNext();
+        dummy = dummy.getNext();
+      }
+    }
+    else {
+      System.out.println(decider);
+      _front = front2;
+      dummy = _front;
+      front2 = front2.getNext();
+
+      while (front2 != null) {
+        dummy.setNext(front2);
+        front2 = front2.getNext();
+        dummy = dummy.getNext();
+      }
+
+      while (front1 != null) {
+        dummy.setNext(front1);
+        front1 = front1.getNext();
+        dummy = dummy.getNext();
+      }
+    }
+
+    _end = dummy;
+
+    // System.out.println(this.toString());
+    // System.out.println(_end);
+
+  }//O(n^2)
 
 
   public boolean isEmpty()
@@ -190,7 +250,6 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
       System.out.println("\nnow testing toString()..."); 
       System.out.println( PirateQueue ); //for testing toString()...
       
-      /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       System.out.println("\nnow dequeuing..."); 
       System.out.println( PirateQueue.dequeue() );
       System.out.println( PirateQueue.dequeue() );
@@ -198,15 +257,15 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
       System.out.println( PirateQueue.dequeue() );
       System.out.println( PirateQueue.dequeue() );
       System.out.println( PirateQueue.dequeue() );
-
+      
+      System.out.println(PirateQueue);
+      /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
     System.out.println("\nnow dequeuing fr empty queue...\n" +
     "(expect NPE)\n"); 
     System.out.println( PirateQueue.dequeue() );
     ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
 
-    PirateQueue.swap(1,3);
-
-    System.out.println("q:" + PirateQueue);
+    // PirateQueue.sample();
 
 
   }//end main
