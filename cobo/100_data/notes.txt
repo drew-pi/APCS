@@ -2,17 +2,18 @@ Team OutOfBreath: Brian Wang, Brian Kang, Jacog Ng, Andrew Piatetsky
 APCS
 LAB100 -- COBO
 2022-04-05
-time spent: _ hrs
+time spent: toomany hrs
 
 
 DISCO
+this lab is too long.
 
 
 QCC
 
 
-<OutOfBreath>'s CSV FLOW:
-did not get to that part of the lab
+<TNPG>'s CSV FLOW:
+<insert your description of your tools and workflow in creating, editing CSV files>
 
 
 TRUBZ
