@@ -6,15 +6,21 @@ time spent: toomany hrs
 
 
 DISCO
-this lab is too long.
+Long lab :)
 
 
 QCC
 
 
-<TNPG>'s CSV FLOW:
-<insert your description of your tools and workflow in creating, editing CSV files>
+<OutOfBreath>'s CSV FLOW:
+Did not get to that part
 
 
 TRUBZ
-<this lab involves using tools that are likely to introduce hiccups; log any troubleshooting issues here>
+Compiling the jar file was a huge headache. first it didn't work, then by changing litereally nothing it started working, then it just stopped working
+also could not find core.data* library. Ran into many errors that way
+
+
+On home computer worked very well, on school computers did not work at all because 1. could not find core library and did not want to cooperate and compile the files
+
+Very jankey, the same code would not always work the same way. Randomly failing
