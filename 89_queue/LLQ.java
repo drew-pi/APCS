@@ -4,12 +4,11 @@ import java.util.LinkedList;
 public class LLQ<T> implements Queue<T> {
 
   private int _size;
-  private LLNode _front, _end;
+  private LinkedList<T> _data;
 
   public LLQ() {
     _size = 0;
-    _front = _end = null;
-  }
+    _data = new LinkedList<T>();
 
 
 
