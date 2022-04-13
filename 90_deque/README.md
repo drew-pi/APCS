@@ -8,4 +8,8 @@ todo list
 4. then add other methods inherited from the collection interface such as isEmpty() and size()
 
 
+At the end decided not to implement size(), but created an isEmpty() method because just extended our old Queue interface. 
+
+Also renamed enqueueFront() and dequeueEnd() to just enqueue() and dequeue() because already defined in our old Queue interface
+
 Will use a LinkedList to hold the deque

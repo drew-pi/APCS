@@ -1,0 +1,27 @@
+
+JAB (Jeffery Tang, Andrew Piatetsky, Brian Kang)
+APCS pd6
+HW90: Swabbing the Deque
+2022-04-12
+time spent:  20min
+
+
+
+QCC:
+What are Queue's and Deque's used for, stacks are used to control the flow of operations in programming languages for example. 
+
+
+
+DISCO: Using a linked list was so easy. Just use already built in functionality. And I know how LinkedLists work so I know the run
+time for everything and understand how everything works.
+
+When we first started using LinkedLists I didn't realize what they could be useful for, but now I sort of understand. Can use them to
+create other data types and not actually store information important to use (like an list of needed information like passwords or words)
+    - like the conventional list I mean
+
+
+
+In the middle of development decided to just extend our old Queue interface since it already has half of the functionality, so had to
+change the names of some of the methods in our LLDeque class and remove some stuff from Deque interface
+
+Also removed size because don't use it anyways, LinkedList takes care of it for us
