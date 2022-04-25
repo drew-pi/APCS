@@ -1,3 +1,38 @@
+## Thursday 2022-04-14 :: AP Exam Shenanigans :: by Andrew Piatetsky
+
+**Interesting Tech News:** [Internet Thugs vs Microsoft](https://www.cnn.com/2022/04/13/tech/microsoft-zloader-malware/index.html)
+
+### Do Now: 
+* Take out Barron APCS textbook (or definitley do not open free book [link](https://piazza.com/class/kue5pmk0w7n70n?cid=753) in piazza)
+* Be prepared to listen to speaker
+
+#### Visitor From Fordham University
+* He talked about the schedule
+  - doesn't have classes everyday like at Stuy
+  - so hw's are usually much longer (~2 hours)
+* Classes at Fordham are 30-60 people
+  - recommends sitting in front and middle of the lecture hall
+  - take pictures of notes instead of writing everything down
+  - Choice of classes depends on how many core/required classes you have passed
+  - Electives fill up (depends on availability)
+* Exams in College
+  - Sometimes 3 exams in a semester, sometimes only a final.
+* Social Life
+  - He said he did not join many clubs and doesn't hang out with many people outside of his classes. 
+  - Please have fun in college! 
+
+#### Study/Practice for AP Exam
+* Take out book and go through the practice test (Book - page 5, PDF - page 23)
+* Post anything confusing or interesting on QAF with [this](https://piazza.com/class/kue5pmk0w7n70n?cid=771) format. 
+
+#### Homework
+* Break mathematics: 11 * 8 = 88,000,000,000,000...
+
+#### Next LCT
+* Emily Ortiz (eortiz30@stuy.edu)
+
+---
+
 ## Tuesday 2022-2-15 :: 8 Queens Puzzle :: by Andrew Piatetsky
 
 **Interesting Tech News:** [Cool stuff on Windows soon](https://www.cnet.com/tech/services-and-software/windows-11-finally-adds-android-apps-heres-how-to-download-them/)
