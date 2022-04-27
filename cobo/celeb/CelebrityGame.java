@@ -1,5 +1,7 @@
-import java.util.ArrayList;
+package celeb;
 
+
+import java.util.ArrayList;
 /**
  * The framework for the Celebrity Game project
  *
@@ -30,6 +32,7 @@ public class CelebrityGame
 	{
 		celebGameList = new ArrayList<Celebrity>();
 		gameWindow = new CelebrityFrame(this);
+
 	}
 
 	/**

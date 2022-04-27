@@ -1,5 +1,4 @@
-
-package 101_celeb;
+package celeb;
 /**
  * Starts the Celebrity Game application
  * @author cody.henrichsen
@@ -15,9 +14,6 @@ public class CelebrityRunner
 	{	
 		System.out.println("hello");
 		CelebrityGame game = new CelebrityGame();
-		game.prepareGame();
-		game.addCelebrity("john cena", "u cant see him", "actor/wrestler");
-		game.play();
 
 	}
 }
