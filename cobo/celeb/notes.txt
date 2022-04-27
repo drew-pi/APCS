@@ -1,0 +1,22 @@
+/*
+Team PinkLemonade:  Jacob Ng, Andrew Piatetsky, Emily Ortiz
+APCS
+L09: Some Folks Call It A Charades
+2022-04-26
+time spent: _ hrs
+*/
+
+First start implementing celebrity class. Create instance variables and constructor. Move on to accessor and mutators
+
+Q: ToString method: should it return more than just celebrity name
+
+Decided to sip the GUI stuff (during class) in Game class first so that logic will function currently. 
+But if AP instructions told us to do GUI we did
+
+
+
+QCC
+- How to use swingset?
+- How to play the game in the terminal?
+- Difference between preparegame() and celebrityGame() constructor?
+- when will we have to call setclue/setanswer in celebrity if it's all done in the overloaded constructor?
