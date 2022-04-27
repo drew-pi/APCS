@@ -1,6 +1,15 @@
 package celeb;
 
 
+/*
+Team PinkLemonade:  Jacob Ng, Andrew Piatetsky, Emily Ortiz
+APCS
+L09: Some Folks Call It A Charades
+2022-04-26
+time spent: _ hrs
+*/
+
+
 import java.util.ArrayList;
 /**
  * The framework for the Celebrity Game project
