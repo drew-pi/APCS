@@ -51,6 +51,9 @@ public class CelebrityFrame extends JFrame
 	{
 		//The first line of any subclass should ALWAYS be a correct call to the super constructor.
 		super();
+		controller = controllerRef;
+		setupFrame();
+		// this.setVisible(true);
 	
 	}
 	
@@ -59,7 +62,11 @@ public class CelebrityFrame extends JFrame
 	 */
 	private void setupFrame()
 	{
-		
+		startPanel = new StartPanel(controller);
+		gamePanel = new CelebrityPanel(controller);
+		panelCards = new JPanel();
+		this.setVisible(true);
+
 	}
 	
 	/**
