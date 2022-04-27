@@ -64,6 +64,7 @@ public class CelebrityFrame extends JFrame
 	{
 		startPanel = new StartPanel(controller);
 		gamePanel = new CelebrityPanel(controller);
+		gamePanel.add("Hello");
 		panelCards = new JPanel();
 		this.setVisible(true);
 
