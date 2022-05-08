@@ -1,0 +1,76 @@
+Team PinkLemonade:  Jacob Ng, Andrew Piatetsky, Emily Ortiz
+APCS pd6
+HW94: Reforestation
+2022-05-08
+time spent:  hrs
+
+DISCO
+------------------------------------------------
+* Pre order traversal: 1. Root, 2. Left subtree, 3. Right subtree
+* In order traversal: 1. Left Subtree, 2. root, 3. Right subtree
+* Post order traversal: 1. Left subtree 2. Right subtree 3. root
+================================================
+
+
+QCC
+------------------------------------------------
+* 
+================================================
+
+
+HOW KEEN ARE YOUR POWERS OF OBSERVATION?
+------------------------------------------------
+Q: For a given binary tree, how many unique pre-order traversals are there?
+A: 1
+
+Q: For a given binary tree, how many unique in-order traversals are there?
+A: 1
+
+Q: For a given binary tree, how many unique post-order traversals are there?
+A: 1
+
+Q: For a given traversal, how many unique trees could have produced it?
+A: varies based on what type of traversal, if numb of nodes > 1, then greater than 1 unique tree
+
+Q: Given a pre-order traversal, what can you infer about its tree?
+A: numb of nodes + 1
+
+Q: Given a post-order traversal, what can you infer about its tree?
+A: numb of nodes ^ 2 ? ( a lot of possiblities )
+
+Q: What does "1-to-1" mean?
+A: No idea but I'm guessing it means that a tree maps on exactly to one traversal (only 1 tree for a given traversal)
+
+Q: What does "onto" mean?
+A: ?
+
+================================================
+
+
+ALGO for Pre order - for getting a singly linked tree
+------------------------------------------------
+givens: The pre order traversal
+
+procedure:
+1. The first node is the root
+2. Then add the next node in the traversal as the left node of the root
+3. Continue until you reach the end of the traversal 
+
+================================================
+
+
+ALGO for Post order - for getting a singly linked tree
+------------------------------------------------
+givens: The post order traversal
+
+procedure:
+1. The last node is the root
+2. Take the previous node in the traversal and add it as the left node of the root
+3. Continue until you reach the first node of the traversal 
+
+================================================
+(replicate the algo section above as many times as necessary for distinct algos)
+
+
+
+
