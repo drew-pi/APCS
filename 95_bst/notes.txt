@@ -1,0 +1,25 @@
+/*
+Team PinkLemonade:  Jacob Ng, Andrew Piatetsky, Emily Ortiz
+APCS pd6
+HW95 -- Algorithm as Data Structure
+2022-05-09
+time spent: _ hrs
+*/
+
+/*
+Disco
+Let the computer do the work. Just like knights tour
+
+QCC:
+Does the first insert create the root or should the root be a fixed value?
+What to do if the value already exists in tree?
+
+
+*/
+
+
+L = level   d = depth   h = height
+
+1. a perfect binary tree has (2^d) + 1 nodes?
+2. At each level, a perfect binary tree has 2^L nodes
+3. height of a complete binary tree with n nodes is log(n+1) - 1? Same as perfect tree?
