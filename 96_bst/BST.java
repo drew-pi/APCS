@@ -1,7 +1,7 @@
 /*
 Team PinkLemonade:  Jacob Ng, Andrew Piatetsky, Emily Ortiz
 APCS pd6
-HW95 -- Algorithm as Data Structure
+HW96: BSTs is the Perfect Place for Shade
 2022-05-09
 time spent: _ hrs
 */

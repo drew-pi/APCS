@@ -8,7 +8,7 @@ time spent: _ hrs
 
 /*
 Disco
-Let the computer do the work. Just like knights tour
+Let the computer do the work. Just like knights tour, don't think just outsource all the work to children, just like how our shoes get made :)
 
 QCC:
 Does the first insert create the root or should the root be a fixed value?
