@@ -1,0 +1,39 @@
+/*
+Team PinkLemonade:  Jacob Ng, Andrew Piatetsky, Emily Ortiz
+APCS pd6
+HW96: BSTs is the Perfect Place for Shade
+2022-05-09
+time spent: _ hrs
+*/
+
+/*
+Disco
+Let the computer do the work. Just like knights tour
+
+QCC:
+Does the first insert create the root or should the root be a fixed value?
+What to do if the value already exists in tree?
+
+In our height method we have to do minus 1 at the end because we initialize our tree with 0.
+
+
+*/
+
+
+L = level   d = depth   h = height
+
+1. a perfect binary tree has (2^d) + 1 nodes?
+2. At each level, a perfect binary tree has 2^L nodes
+3. height of a complete binary tree with n nodes is log(n+1) - 1? Same as perfect tree?
+
+
+
+From Gabriel Thompson
+1. a perfect binary tree has 2^L - 1 nodes
+2. at each level, a perfect binary tree has 2^d nodes
+3. height of a complete binary tree w/ n nodes is Ceiling( log_2(n + 1) ) - 1
+
+
+
+
+

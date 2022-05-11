@@ -1,0 +1,36 @@
+
+    /*****************************************************
+     * TreeNode search(int)
+     * returns pointer to node containing target,
+     * or null if target not found
+     *****************************************************/
+    TreeNode search( int target )
+    {
+    	/*** YOUR IMPLEMENTATION HERE ***/
+      use insert method, but instead of inserting we compare when the cargo equals our int. Then we create a pointer and point it to the node.
+
+    }
+
+
+    /*****************************************************
+     * int height()
+     * returns height of this tree (length of longest leaf-to-root path)
+     * eg: a 1-node tree has height 1
+     *****************************************************/
+    public int height()
+    {
+    	/*** YOUR IMPLEMENTATION HERE ***/
+      //ask child how tall you are
+      
+    }
+
+
+    /*****************************************************
+     * int numLeaves()
+     * returns number of leaves in tree
+     *****************************************************/
+    public int numLeaves()
+    {
+    	/*** YOUR IMPLEMENTATION HERE ***/
+      Use a traversal because but instead of going all the way until the current node is null, just check that left and right == null, then counter++
+    }
