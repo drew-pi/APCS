@@ -1,0 +1,133 @@
+/*
+Team PinkLemonade:  Jacob Ng, Andrew Piatetsky, Emily Ortiz
+APCS pd6
+HW96: BSTs is the Perfect Place for Shade
+2022-05-09
+time spent: _ hrs
+*/
+
+/*
+Disco
+Let the computer do the work. Just like knights tour, don't think just outsource all the work to children, just like how our shoes get made :)
+
+First two cases very simple, no recursion necessary.
+
+Other case not simple at all because have to worry about possibly a million children can't lose any of them
+Realized that replacing root with either largest or smallest because then the BST is set in such away which is impossible
+
+for ex:
+Original Tree:
+Pre order: 312546
+In order: 123456
+
+After using greater than strategy when removing the root (which is 3)
+Pre order: 61254
+In order: 12645
+
+You can already tell that its out of order because of the in order traversal, but the there is no way the 4 could have been placed in that spot because it should always be placed
+to the left of the root(6) so since its at the right of 6 this is not a BST, so the greatest pattern doesn't work very well
+
+
+QCC:
+Does the first insert create the root or should the root be a fixed value?
+What to do if the value already exists in tree?
+
+In our height method we have to do minus 1 at the end because we initialize our tree with 0.
+
+
+*/
+
+
+L = level   d = depth   h = height
+
+1. a perfect binary tree has (2^d) + 1 nodes?
+2. At each level, a perfect binary tree has 2^L nodes
+3. height of a complete binary tree with n nodes is log(n+1) - 1? Same as perfect tree?
+
+
+
+From Gabriel Thompson
+1. a perfect binary tree has 2^L - 1 nodes
+2. at each level, a perfect binary tree has 2^d nodes
+3. height of a complete binary tree w/ n nodes is Ceiling( log_2(n + 1) ) - 1
+
+
+
+
+
+
+
+
+
+
+Test cases from closet:
+
+	BST arbol = new BST();
+
+	System.out.println( "tree init'd: " + arbol );
+
+	//inserting in this order will build a perfect tree
+	arbol.insert( 3 );
+	arbol.insert( 1 );
+	arbol.insert( 0 );
+	arbol.insert( 2 );
+	arbol.insert( 5 );
+	arbol.insert( 4 );
+	arbol.insert( 6 );
+	/*
+	*/
+
+	//insering in this order will build a linked list to left
+	/*
+	arbol.insert( 6 );
+	arbol.insert( 5 );
+	arbol.insert( 3 );
+	arbol.insert( 4 );
+	arbol.insert( 2 );
+	arbol.insert( 1 );
+	arbol.insert( 0 );
+	*/
+
+	System.out.println( "tree after insertions:\n" + arbol );
+	System.out.println();
+
+	System.out.println();
+	for( int i=-1; i<8; i++ ) {
+	    System.out.println(" searching for "+i+": " + arbol.search(i) );    
+	}
+
+	System.out.println();
+	System.out.println( arbol );
+
+	arbol.remove(6);
+	System.out.println();
+	System.out.println( arbol );
+
+	arbol.remove(5);
+	System.out.println();
+	System.out.println( arbol );
+
+	arbol.remove(4);
+	System.out.println();
+	System.out.println( arbol );
+
+	arbol.remove(3);
+	System.out.println();
+	System.out.println( arbol );
+
+	arbol.remove(2);
+	System.out.println();
+	System.out.println( arbol );
+
+	arbol.remove(1);
+	System.out.println();
+	System.out.println( arbol );
+
+	arbol.remove(0);
+	System.out.println();
+	System.out.println( arbol );
+
+
+
+
+
