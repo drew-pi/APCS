@@ -234,10 +234,7 @@ public class BST
 
     public TreeNode remove(int target) {
       TreeNode remNode = search(target);
-      TreeNode prevNode = searchPre(target, _root);;
-
-      // node doesn't exist
-      if (remNode == null ) return null;
+      TreeNode prevNode = searchPre(target);
 
       // if no children
       if (remNode.getLeft() == null && remNode.getRight()==null) {
@@ -283,8 +280,24 @@ public class BST
         }
       }
 
+
       // if node has two children 
-      remove(remNode, prevNode,_root);
+      
+      TreeNode maxLeft;
+      TreeNode tempLeft, tempRight;
+
+      // if the node being removed is the root
+      if (prevNode == null) {
+        maxLeft = subTreeGreatest(remNode.getLeft);
+        searchPre(maxLeft).setLeft
+        tempLeft = remNode.getLeft();
+        tempRight = remNode.getRight();
+
+        // if the remNode is on the left of prevNode
+        if (prevNode.getLeft().equals(remNode)) {
+          prevNode
+        }
+      }
 
 
 
