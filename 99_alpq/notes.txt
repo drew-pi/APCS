@@ -1,0 +1,13 @@
+/*
+Team PinkLemonade:  Jacob Ng, Andrew Piatetsky, Emily Ortiz
+APCS pd6
+HW99: Some Are More Equal Than Others, Codified
+2022-05-13
+time spent: _ hrs
+*/
+
+
+very simple because just use the build in functionality of ArrayList class.
+
+seems to be very hard to get lower than O(n) since either have to take time to find the min val,
+or take time to find where to first insert it (both would take O(n) since have to search the array and then shift - for add and/or remove)
