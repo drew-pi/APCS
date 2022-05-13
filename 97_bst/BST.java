@@ -234,7 +234,11 @@ public class BST
 
     public TreeNode remove(int target) {
       TreeNode remNode = search(target);
-      TreeNode prevNode = searchPre(target);
+      TreeNode prevNode = searchPre(target,_root);
+
+      // System.out.println("remNode " + remNode.getValue());
+      // if (prevNode != null) System.out.println("prevNode " + prevNode.getValue());
+      // else System.out.println("null");
 
       // if no children
       if (remNode.getLeft() == null && remNode.getRight()==null) {
@@ -249,7 +253,7 @@ public class BST
       // if only one child
 
       // if that child is the right node
-      if (remNode.getLeft() == null) {
+      else if (remNode.getLeft() == null) {
         // if rem node is the root
         if (prevNode == null) {
           _root = (_root.getRight());
@@ -265,7 +269,7 @@ public class BST
       }
 
       // if that child is the left node
-      if (remNode.getRight() == null) {
+      else if (remNode.getRight() == null) {
         // if rem node is the root
         if (prevNode == null) {
           _root = (_root.getLeft());
@@ -282,60 +286,105 @@ public class BST
 
 
       // if node has two children 
-      
-      TreeNode maxLeft;
-      TreeNode tempLeft, tempRight;
+      else {
 
-      // if the node being removed is the root
-      if (prevNode == null) {
-        maxLeft = subTreeGreatest(remNode.getLeft);
-        searchPre(maxLeft).setLeft
+        TreeNode maxLeft;
+        TreeNode tempLeft, tempRight;
+
+        maxLeft = subTreeGreatest(remNode.getLeft());
+
+        // System.out.println("maxLeft " + maxLeft.getValue());
+
+        // System.out.println("serch pre " + searchPre(maxLeft.getValue(), _root).getValue());
+        // System.out.println("");
+
         tempLeft = remNode.getLeft();
         tempRight = remNode.getRight();
 
-        // if the remNode is on the left of prevNode
-        if (prevNode.getLeft().equals(remNode)) {
-          prevNode
+        searchPre(maxLeft.getValue(), _root).setRight(null);
+
+        // System.out.println("tempRight " + tempRight.getValue());
+
+        // checking to see if maxLeft is tempLeft or tempRight
+        if (maxLeft.equals(tempLeft)) tempLeft = null;
+        if (maxLeft.equals(tempRight)) tempRight = null;
+        
+        // if the node being removed is the root
+        if (prevNode == null) {
+
+          _root = maxLeft;
+          _root.setLeft(tempLeft);
+          _root.setRight(tempRight);
         }
-      }
+        // if the remNode is on the left of prevNode
+        else if (remNode.equals(prevNode.getLeft())) {
+          prevNode.setLeft(maxLeft);
+          maxLeft.setRight(tempRight);
+          maxLeft.setLeft(tempLeft);
+        }
+        else { // if the remoNode is on the right
+          prevNode.setRight(maxLeft);
+          maxLeft.setRight(tempRight);
+          maxLeft.setLeft(tempLeft);
+
+          // tests just in case of any future errors
+
+          // System.out.println("root" + _root.getValue());
+          // System.out.println("right of root" + _root.getRight().getValue());
+          // System.out.println("left of root" + _root.getLeft());
+          // System.out.println("");
+
+          // System.out.println("left of right of root" + _root.getRight().getLeft().getValue());
+          // System.out.println("right of right of root" + _root.getRight().getRight().getValue());
+          // System.out.println("");
+
+          // System.out.println("right of left of right of root" + _root.getRight().getLeft().getRight().getValue());
+          // System.out.println("left of left of right of root" + _root.getRight().getLeft().getLeft());
+          // System.out.println("");
+
+          // System.out.println("right of right of right of root" + _root.getRight().getRight().getRight());
+          // System.out.println("left of right of right of root" + _root.getRight().getRight().getLeft().getValue());
+          // System.out.println("");
 
 
-
-
+          // System.out.println("the new subroot" + prevNode.getRight().getValue() + " " + maxLeft.getValue());
+          // System.out.println("tempLeft or maxLeft.getLeft()" + prevNode.getRight().getLeft().getValue() + " " + maxLeft.getLeft().getValue() + " " + tempLeft.getValue());
+          // System.out.println("tempRight or maxLeft.getRight()" + prevNode.getRight().getRight().getValue() + " " + maxLeft.getRight().getValue() + " " + tempRight.getValue());
+          // System.out.println(prevNode.getRight().getRight().getRight().getValue());
+          // System.out.println(prevNode.getRight().getRight().getLeft().getValue());
+        }
+      } // end 
 
       return remNode;
       // return remove(target, _root);
     }
 
 
-    // helper method
-    public void remove(TreeNode remNode, TreeNode prevNode, TreeNode rootNode) {
-      int targetVal = prevNode.getValue();
-      TreeNode remLeft;
+    // failings of a helper method
+    // public void remove(TreeNode remNode, TreeNode prevNode, TreeNode rootNode) {
+    //   int targetVal = prevNode.getValue();
+    //   TreeNode remLeft;
 
-      if (remNode == null) return;
+    //   if (remNode == null) return;
       
-      if (prevNode.getRight().equals(remNode)){
-        remLeft = remNode.getLeft();
-        prevNode.setRight(remNode.getRight());
+    //   if (prevNode.getRight().equals(remNode)){
+    //     remLeft = remNode.getLeft();
+    //     prevNode.setRight(remNode.getRight());
 
-        prevNode.getRight().setLeft(remLeft);
+    //     prevNode.getRight().setLeft(remLeft);
 
-      }
+    //   }
 
-      if (prevNode.getLeft().equals(remNode)) {
-        prevNode.setLeft(remNode.getRight());
-        remove(prevNode.get)
-      }
+    //   if (prevNode.getLeft().equals(remNode)) {
+    //     prevNode.setLeft(remNode.getRight());
+    //     remove(prevNode.get)
+    //   }
 
-      // return new TreeNode(5);
-
-
-      
+    //   // return new TreeNode(5);
+    // }
 
 
-
-    }
+    
 
 
     // search for parent of desired node
@@ -434,13 +483,13 @@ public class BST
     // System.out.println();
     // System.out.println( arbol );
 
-    // System.out.println("");
-    // System.out.println(arbol.remove(0).getValue());
-    // System.out.println();
+    System.out.println("");
+    System.out.println(arbol.remove(6).getValue());
+    System.out.println();
 
-    // arbol.preOrderTrav();
-    // System.out.println("");
-    // arbol.inOrderTrav();
+    arbol.preOrderTrav();
+    System.out.println("");
+    arbol.inOrderTrav();
 
     // arbol.remove(5);
     // System.out.println();
