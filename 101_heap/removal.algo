@@ -1,0 +1,25 @@
+/*
+Team PinkLemonade:  Jacob Ng, Andrew Piatetsky, Emily Ortiz
+APCS pd6
+HW101: Heap o'Trouble
+2022-05-16
+*/
+
+
+Also 3 cases
+1. no children
+2. one child
+3. 2 children
+
+
+search for the node before the removal node, by just going down each subtree until we find a value that is greater than the removal value
+
+once we find it, if its a leaf, then we just remove it
+
+if it has one child we just make the previous node adopt all of the removal nodes children to its left
+
+if it has two children, we find the smallest value in that subtree to take the place of the subroot (find smallest, by just recursively navigating the tree)
+
+
+
+

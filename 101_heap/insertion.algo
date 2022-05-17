@@ -1,0 +1,17 @@
+/*
+Team PinkLemonade:  Jacob Ng, Andrew Piatetsky, Emily Ortiz
+APCS pd6
+HW101: Heap o'Trouble
+2022-05-16
+*/
+
+
+
+if insertion value is smaller than root, then insertion value is root and left pointer is previous root
+
+if left child is smaller than insertion value, continue recurve down that subtree (resart steps)
+
+else check if left child is greater than insertion value:
+    if right spot of subroot is empty, then just add the insertion value into the right spot
+    if right spot isn't empty and is smaller than the insertion value, then just recurse down that subtree (restart steps)
+    if both left and right children are larger than insertion value, then insert insertion value into the right subtree and rearrange that subtree so that it works

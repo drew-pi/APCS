@@ -1,0 +1,18 @@
+/*
+Team PinkLemonade:  Jacob Ng, Andrew Piatetsky, Emily Ortiz
+APCS pd6
+HW101: Heap o'Trouble
+2022-05-16
+*/
+
+
+DISCO:
+min heap is a heap where the SMALLEST value is the root, goes from small (at the top) to big at the bottom,
+
+seems pretty useless since two children nodes not required to have a sorted data structure - better to use a sorted linked list
+
+
+QCC:
+What is this used for, seems like such a random data structure
+
+
