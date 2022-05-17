@@ -74,18 +74,21 @@ public class ALHeap
    * Inserts an element in the heap
    * Postcondition: Tree exhibits heap property.
    * ALGO:
-   * <your clear && concise procedure here>
+   * add as leaf, then "float" it up
    */
   public void add( Integer addVal )
   {
-    // add as leaf, then "float" it up
-    int indexVal = _heap.size()
+    int posVal = _heap.size();
+    int posParent = findParent(posVal);
     _heap.add(addVal);
 
-
-    if ( minOf(findParent(_heap.size()-1),addVal) == addVal) {
-
+    while (_heap.get(posParent) > _heap.get(posVal)) {
+      swap(posVal, posParent);
+      posVal = posParent;
+      posParent = findParent(posVal);
     }
+
+    // if ( minOf(findParent(_heap.size()-1),addVal) == addVal)
   }//O(?)
 
 
@@ -94,11 +97,33 @@ public class ALHeap
    * Removes and returns least element in heap.
    * Postcondition: Tree maintains heap property.
    * ALGO:
-   * <your clear && concise procedure here>
+   * <swap smallest and last added elements, then resort by >
    */
   public Integer removeMin()
   {
-      // 
+    int posLast = _heap.size()-1;
+    int curVal = _heap.get(0);
+
+    int smallest = _heap.get(posLast);
+
+    // swap and remove
+    swap(posLast, curVal);
+    _heap.remove(posLast);
+
+    // re-sort and maintain invariant
+    if (_heap.get((curVal * 2) + 1) > _heap.get((curVal * 2) + 2)) {
+      swap(curVal, (curVal * 2) + 2);
+      curVal = (curVal * 2) + 2;
+    }
+    else {
+      swap(curVal, (curVal * 2) + 1);
+      curVal = (curVal * 2) + 1;
+    }
+
+
+    return smallest;
+
+      
   }//O(?)
 
 
