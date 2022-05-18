@@ -5,6 +5,18 @@ HW101: Heap o'Trouble
 2022-05-16
 */
 
+/*
+DISCO
+Trace everything out
+errors so stupid and so easy to find when you print info out 
+
+
+QCC
+everything is log base 2 something, because of the binary nature. If a tree has between 4-7 elements, the maximum number of swaps
+that has to be done to resort the tree is 2 (corresponds to log base 2 of elements between 4-7)
+
+*/
+
 
 /**
  * class ALHeap
@@ -44,7 +56,7 @@ public class ALHeap
           retString += i + ",";
       }
       return retString;
-  }//O(?)
+  }//O(n)
 
 
   /**
@@ -54,7 +66,7 @@ public class ALHeap
   public boolean isEmpty()
   {
       return _heap.size() == 0;
-  }//O(?)
+  }//O(1)
 
 
   /**
@@ -66,7 +78,7 @@ public class ALHeap
   {
       if (isEmpty()) return null;
       return _heap.get(0);
-  }//O(?)
+  }//O(1)
 
 
   /**
@@ -89,7 +101,7 @@ public class ALHeap
     }
 
     // if ( minOf(findParent(_heap.size()-1),addVal) == addVal)
-  }//O(?)
+  }//O(logn)
 
 
   /**
@@ -101,30 +113,42 @@ public class ALHeap
    */
   public Integer removeMin()
   {
-    int posLast = _heap.size()-1;
-    int curVal = _heap.get(0);
+    if (isEmpty()) return null;
 
-    int smallest = _heap.get(posLast);
+
+    int posLast = _heap.size()-1;
+    int curPos = 0;
+    int minPos = -1;
+
+
+    int smallest = _heap.get(curPos);
 
     // swap and remove
-    swap(posLast, curVal);
+    swap(posLast, curPos);
     _heap.remove(posLast);
 
+    if (_heap.size() == 1) return smallest;
+
+
     // re-sort and maintain invariant
-    if (_heap.get((curVal * 2) + 1) > _heap.get((curVal * 2) + 2)) {
-      swap(curVal, (curVal * 2) + 2);
-      curVal = (curVal * 2) + 2;
-    }
-    else {
-      swap(curVal, (curVal * 2) + 1);
-      curVal = (curVal * 2) + 1;
+    while (_heap.size() > (curPos * 2) + 2) {
+
+      // System.out.println("heap: " + _heap);
+      // System.out.println("curPos: " + curPos);
+      // System.out.println("minPos: " + minPos);
+      minPos = minChildPos(curPos);
+      if (_heap.get(minPos) > _heap.get(curPos)) {
+        break;
+      }
+      swap(curPos, minPos);
+      curPos = minPos;
     }
 
 
     return smallest;
 
       
-  }//O(?)
+  }//O(logn)
 
 
   /**
@@ -144,7 +168,7 @@ public class ALHeap
       else {
           return indxChildRight;
       }
-  }//O(?)
+  }//O(1)
 
 
   //~~~~~~~~~~~~~ aux helper fxns ~~~~~~~~~~~~~~
@@ -173,52 +197,52 @@ public class ALHeap
   //main method for testing
   public static void main( String[] args )
   {
+    ALHeap pile = new ALHeap();
+    
+    pile.add(2);
+    System.out.println(pile);
+    pile.add(4);
+    System.out.println(pile);
+    pile.add(6);
+    System.out.println(pile);
+    pile.add(8);
+    System.out.println(pile);
+    pile.add(10);
+    System.out.println(pile);
+    pile.add(1);
+    System.out.println(pile);
+    pile.add(3);
+    System.out.println(pile);
+    pile.add(5);
+    System.out.println(pile);
+    pile.add(7);
+    System.out.println(pile);
+    pile.add(9);
+    System.out.println(pile);
+    
+    System.out.println("removing " + pile.removeMin() + "...");
+    System.out.println(pile);
+    System.out.println("removing " + pile.removeMin() + "...");
+    System.out.println(pile);
+    System.out.println("removing " + pile.removeMin() + "...");
+    System.out.println(pile);
+    System.out.println("removing " + pile.removeMin() + "...");
+    System.out.println(pile);
+    System.out.println("removing " + pile.removeMin() + "...");
+    System.out.println(pile);
+    System.out.println("removing " + pile.removeMin() + "...");
+    System.out.println(pile);
+    System.out.println("removing " + pile.removeMin() + "...");
+    System.out.println(pile);
+    System.out.println("removing " + pile.removeMin() + "...");
+    System.out.println(pile);
+    System.out.println("removing " + pile.removeMin() + "...");
+    System.out.println(pile);
+    System.out.println("removing " + pile.removeMin() + "...");
+    System.out.println(pile);
+    System.out.println("removing " + pile.removeMin() + "...");
+    System.out.println(pile);
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      ALHeap pile = new ALHeap();
-
-      pile.add(2);
-      System.out.println(pile);
-      pile.add(4);
-      System.out.println(pile);
-      pile.add(6);
-      System.out.println(pile);
-      pile.add(8);
-      System.out.println(pile);
-      pile.add(10);
-      System.out.println(pile);
-      pile.add(1);
-      System.out.println(pile);
-      pile.add(3);
-      System.out.println(pile);
-      pile.add(5);
-      System.out.println(pile);
-      pile.add(7);
-      System.out.println(pile);
-      pile.add(9);
-      System.out.println(pile);
-
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
-      System.out.println("removing " + pile.removeMin() + "...");
-      System.out.println(pile);
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
