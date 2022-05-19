@@ -1,0 +1,27 @@
+/*
+Team PinkLemonade:  Jacob Ng, Andrew Piatetsky, Emily Ortiz
+APCS pd6
+HW103: Erica's Friends, Hugo, and The One in the Middle
+2022-05-18
+*/
+
+Place first value in max heap
+
+Next value compare to the root of the max heap:
+    if it's greater than root of max heap
+        if size of min heap is less than 2 greater than max heap
+            add to min heap
+        else
+            if value is less than root of min heap
+                remove root of max heap and add it to min heap, then add the value to max heap
+            else 
+
+            remove the root of max heap and replace with this value
+
+    else 
+        if size of max heap is less than 2 greater than min heap size
+            add to max heap
+        else remove the root of max heap and replace with this value
+        
+
+

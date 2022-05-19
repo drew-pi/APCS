@@ -1,8 +1,8 @@
 /*
 Team PinkLemonade:  Jacob Ng, Andrew Piatetsky, Emily Ortiz
 APCS pd6
-HW101: Heap o'Trouble
-2022-05-16
+HW103: Erica's Friends, Hugo, and The One in the Middle
+2022-05-18
 */
 
 /*
@@ -19,14 +19,14 @@ that has to be done to resort the tree is 2 (corresponds to log base 2 of elemen
 
 
 /**
- * class ALHeap
+ * class ALHeapMin
  * SKELETON
  * Implements a min heap using an ArrayList as underlying container
  */
 
 import java.util.ArrayList;
 
-public class ALHeap
+public class ALHeapMin
 {
 
   //instance vars
@@ -35,7 +35,7 @@ public class ALHeap
   /**
    * default constructor  ---  inits empty heap
    */
-  public ALHeap()
+  public ALHeapMin()
   {
       _heap = new ArrayList<Integer>();
   }
@@ -67,6 +67,12 @@ public class ALHeap
   {
       return _heap.isEmpty();
   }//O(1)
+
+
+
+  public int size() {
+      return _heap.size();
+  }
 
 
   /**
@@ -197,7 +203,7 @@ public class ALHeap
   //main method for testing
   public static void main( String[] args )
   {
-    ALHeap pile = new ALHeap();
+    ALHeapMin pile = new ALHeapMin();
     
     pile.add(2);
     System.out.println(pile);
