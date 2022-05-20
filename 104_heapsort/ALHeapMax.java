@@ -1,7 +1,7 @@
 /*
 Team PinkLemonade:  Jacob Ng, Andrew Piatetsky, Emily Ortiz
 APCS pd6
-HW104: Free range children heap sort 
+HW104: Free range children heap sorta 
 2022-05-19
 */
 
